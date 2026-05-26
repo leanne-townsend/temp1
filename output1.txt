@@ -44,3 +44,8 @@ Device code: 5A6CDEA1
 Tunnel machine name: DESKTOP-U5SOD7I
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6287-BF98
 Device code: 6287BF98
+
+[2026-05-26T18:58:54] Tunnel Summary
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1E21-AAD3
+Device code: 1E21AAD3
