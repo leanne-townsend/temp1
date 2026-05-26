@@ -169,6 +169,10 @@ def run_command(command: list[str], check: bool = True) -> subprocess.CompletedP
     )
 
 
+def trim_ansi(text: str) -> str:
+    return re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", text)
+
+
 def build_file_api_url(repo: str, file_path: str) -> str:
     encoded_path = urllib.parse.quote(file_path, safe="/")
     return f"https://api.github.com/repos/{repo}/contents/{encoded_path}"
@@ -287,20 +291,21 @@ def login_with_github() -> dict[str, str | None]:
         assert process.stdout is not None
         for line in process.stdout:
             line = line.rstrip()
+            cleaned_line = trim_ansi(line)
             if line and SHOW_RAW_OUTPUT:
                 print(line)
 
-            if details["login_instruction"] is None and "log into" in line.lower() and "use code" in line.lower():
-                details["login_instruction"] = line
+            if details["login_instruction"] is None and "log into" in cleaned_line.lower() and "use code" in cleaned_line.lower():
+                details["login_instruction"] = cleaned_line
 
             if details["device_code"] is None:
-                match = DEVICE_CODE_PATTERN.search(line.upper())
+                match = DEVICE_CODE_PATTERN.search(cleaned_line.upper())
                 if match:
                     details["device_code"] = match.group(1).replace("-", "")
 
-            url_match = URL_PATTERN.search(line)
+            url_match = URL_PATTERN.search(cleaned_line)
             if details["login_instruction"] is None and url_match and LOGIN_HINT_PATTERN.search(url_match.group(0)):
-                details["login_instruction"] = line
+                details["login_instruction"] = cleaned_line
 
             if not summary_printed and (details["login_instruction"] or details["device_code"]):
                 print_summary(details)
@@ -344,16 +349,21 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
     )
 
     uploaded = False
+    recent_lines: list[str] = []
 
     try:
         assert process.stdout is not None
         for line in process.stdout:
             line = line.rstrip()
+            cleaned_line = trim_ansi(line)
+            if cleaned_line:
+                recent_lines.append(cleaned_line)
+                recent_lines = recent_lines[-12:]
             if line and SHOW_RAW_OUTPUT:
                 print(line)
 
             if summary_details["tunnel_url"] is None:
-                tunnel_match = TUNNEL_URL_PATTERN.search(line)
+                tunnel_match = TUNNEL_URL_PATTERN.search(cleaned_line)
                 if tunnel_match:
                     summary_details["tunnel_url"] = tunnel_match.group(0).rstrip(".)")
                     print_summary(summary_details)
@@ -362,7 +372,8 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
 
         exit_code = process.wait()
         if exit_code != 0:
-            raise RuntimeError("Tunnel command failed.")
+            diagnostic = "\n".join(recent_lines) if recent_lines else "No tunnel output captured."
+            raise RuntimeError(f"Tunnel command failed.\nRecent output:\n{diagnostic}")
     except KeyboardInterrupt:
         print("\nStopping tunnel...")
         process.terminate()
