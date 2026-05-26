@@ -34,3 +34,8 @@ Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/Users/survivor/Pictures
 
 Appended from githubsend.py at 2026-05-26T15:36:09
 Sample appended line
+
+[2026-05-26T18:41:06] Tunnel Summary
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5A6C-DEA1
+Device code: 5A6CDEA1
