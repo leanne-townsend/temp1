@@ -5,6 +5,7 @@ import platform
 import re
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -23,6 +24,7 @@ BRANCH = "main"
 CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
 CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
+TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 
@@ -158,10 +160,13 @@ def sync_summary_to_github(details: dict[str, str | None], reason: str) -> None:
     print(f"Tunnel info updated on GitHub after {reason}. Commit: {commit_sha}")
 
 
-def run_command(command: list[str], check: bool = True) -> subprocess.CompletedProcess[str]:
+def run_command(
+    command: list[str], check: bool = True, timeout: float | None = 20
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         command,
         check=check,
+        timeout=timeout,
         text=True,
         capture_output=True,
         encoding="utf-8",
@@ -249,7 +254,11 @@ def validate_github_config() -> None:
 
 def close_existing_tunnel() -> None:
     print("Closing any existing tunnel...")
-    result = run_command([str(CODE_EXE), "tunnel", "kill"], check=False)
+    try:
+        result = run_command([str(CODE_EXE), "tunnel", "kill"], check=False, timeout=8)
+    except subprocess.TimeoutExpired:
+        print("[WARN] Timed out while closing an existing tunnel. Continuing anyway.")
+        return
     if result.stdout.strip():
         print(result.stdout.strip())
     if result.stderr.strip():
@@ -258,7 +267,11 @@ def close_existing_tunnel() -> None:
 
 def logout_existing_login() -> None:
     print("Clearing any previous tunnel login...")
-    result = run_command([str(CODE_EXE), "tunnel", "user", "logout"], check=False)
+    try:
+        result = run_command([str(CODE_EXE), "tunnel", "user", "logout"], check=False, timeout=8)
+    except subprocess.TimeoutExpired:
+        print("[WARN] Timed out while clearing the previous tunnel login. Continuing anyway.")
+        return
     if result.stdout.strip():
         print(result.stdout.strip())
     if result.stderr.strip():
@@ -330,59 +343,71 @@ def login_with_github() -> dict[str, str | None]:
 
 def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
     print("Creating a new tunnel...")
-    process = subprocess.Popen(
-        [
-            str(CODE_EXE),
-            "tunnel",
-            "--no-sleep",
-            "--accept-server-license-terms",
-            "--name",
-            TUNNEL_NAME,
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        stdin=subprocess.DEVNULL,
-        text=True,
-        bufsize=1,
-        encoding="utf-8",
-        errors="replace",
-    )
+    TUNNEL_LOG.parent.mkdir(parents=True, exist_ok=True)
+    TUNNEL_LOG.write_text("", encoding="utf-8")
+
+    with TUNNEL_LOG.open("a", encoding="utf-8", errors="replace") as log_file:
+        process = subprocess.Popen(
+            [
+                str(CODE_EXE),
+                "tunnel",
+                "--no-sleep",
+                "--accept-server-license-terms",
+                "--name",
+                TUNNEL_NAME,
+            ],
+            stdout=log_file,
+            stderr=subprocess.STDOUT,
+            stdin=subprocess.DEVNULL,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
 
     uploaded = False
     recent_lines: list[str] = []
+    line_count = 0
+    deadline = time.time() + 90
 
     try:
-        assert process.stdout is not None
-        for line in process.stdout:
-            line = line.rstrip()
-            cleaned_line = trim_ansi(line)
-            if cleaned_line:
-                recent_lines.append(cleaned_line)
-                recent_lines = recent_lines[-12:]
-            if line and SHOW_RAW_OUTPUT:
-                print(line)
+        while time.time() < deadline:
+            if TUNNEL_LOG.exists():
+                log_lines = TUNNEL_LOG.read_text(encoding="utf-8", errors="replace").splitlines()
+                for raw_line in log_lines[line_count:]:
+                    cleaned_line = trim_ansi(raw_line.rstrip())
+                    if cleaned_line:
+                        recent_lines.append(cleaned_line)
+                        recent_lines = recent_lines[-12:]
+                        if SHOW_RAW_OUTPUT:
+                            print(cleaned_line)
 
-            if summary_details["tunnel_url"] is None:
-                tunnel_match = TUNNEL_URL_PATTERN.search(cleaned_line)
-                if tunnel_match:
-                    summary_details["tunnel_url"] = tunnel_match.group(0).rstrip(".)")
-                    print_summary(summary_details)
-                    sync_summary_to_github(summary_details, "tunnel URL detection")
-                    uploaded = True
+                        if summary_details["tunnel_url"] is None:
+                            tunnel_match = TUNNEL_URL_PATTERN.search(cleaned_line)
+                            if tunnel_match:
+                                summary_details["tunnel_url"] = tunnel_match.group(0).rstrip(".)")
+                                print_summary(summary_details)
+                                sync_summary_to_github(summary_details, "tunnel URL detection")
+                                print(f"Tunnel is running. Full log: {TUNNEL_LOG}")
+                                uploaded = True
+                                return
+                line_count = len(log_lines)
 
-        exit_code = process.wait()
-        if exit_code != 0:
-            diagnostic = "\n".join(recent_lines) if recent_lines else "No tunnel output captured."
-            raise RuntimeError(f"Tunnel command failed.\nRecent output:\n{diagnostic}")
+            if process.poll() is not None:
+                break
+
+            time.sleep(1)
     except KeyboardInterrupt:
         print("\nStopping tunnel...")
         process.terminate()
-    finally:
-        if process.poll() is None:
-            process.wait(timeout=10)
+        process.wait(timeout=10)
+        return
 
+    exit_code = process.poll()
+    diagnostic = "\n".join(recent_lines) if recent_lines else "No tunnel output captured."
+    if exit_code is None:
+        raise RuntimeError(f"Timed out waiting for tunnel URL.\nRecent output:\n{diagnostic}")
     if not uploaded:
-        print("Tunnel ended before a tunnel URL was detected, so nothing was sent to GitHub.")
+        raise RuntimeError(f"Tunnel command failed.\nRecent output:\n{diagnostic}")
 
 
 def main() -> None:
