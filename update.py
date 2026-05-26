@@ -15,7 +15,7 @@ from pathlib import Path
 
 
 # Edit these values while testing.
-GITHUB_TOKEN = "Insert token here"
+GITHUB_TOKEN = "your_token_here"
 GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
@@ -25,6 +25,7 @@ CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", 
 CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
 TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
+FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 
@@ -148,16 +149,77 @@ def build_summary_text(details: dict[str, str | None]) -> str:
     return "\n" + "\n".join(lines) + "\n"
 
 
-def sync_summary_to_github(details: dict[str, str | None], reason: str) -> None:
-    result = append_to_github_file(
-        repo=GITHUB_REPO,
-        file_path=TARGET_FILE,
-        branch=BRANCH,
-        token=GITHUB_TOKEN,
-        text_to_append=build_summary_text(details),
+def save_failed_sync(summary_text: str, reason: str, error_message: str) -> None:
+    FAILED_SYNC_LOG.parent.mkdir(parents=True, exist_ok=True)
+    entry = (
+        f"\n[{datetime.now().isoformat(timespec='seconds')}] Failed GitHub sync after {reason}\n"
+        f"Error: {error_message}\n"
+        f"{summary_text}"
     )
-    commit_sha = result.get("commit", {}).get("sha", "unknown")
-    print(f"Tunnel info updated on GitHub after {reason}. Commit: {commit_sha}")
+    with FAILED_SYNC_LOG.open("a", encoding="utf-8") as handle:
+        handle.write(entry)
+
+
+def can_reach_github_api() -> tuple[bool, str | None]:
+    request = urllib.request.Request(
+        "https://api.github.com",
+        headers={
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "combined-tunnel-script",
+        },
+        method="GET",
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=8) as response:
+            return True, f"HTTP {response.status}"
+    except Exception as error:
+        return False, str(error)
+
+
+def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: bool = False) -> bool:
+    summary_text = build_summary_text(details)
+    last_error = None
+    reachable, reachability_note = can_reach_github_api()
+
+    if not reachable:
+        save_failed_sync(summary_text, reason, reachability_note or "api.github.com is unreachable")
+        print(
+            "[WARN] GitHub is unreachable from this machine, so the tunnel summary was not uploaded."
+        )
+        print(f"[WARN] Connectivity check to api.github.com failed: {reachability_note}")
+        print(f"[WARN] Saved unsent tunnel summary to {FAILED_SYNC_LOG}")
+        if details.get("tunnel_url"):
+            print("[INFO] Tunnel created successfully, but GitHub is unreachable from this machine.")
+        if fatal:
+            raise RuntimeError(reachability_note or "api.github.com is unreachable")
+        return False
+
+    for attempt in range(1, 4):
+        try:
+            result = append_to_github_file(
+                repo=GITHUB_REPO,
+                file_path=TARGET_FILE,
+                branch=BRANCH,
+                token=GITHUB_TOKEN,
+                text_to_append=summary_text,
+            )
+            commit_sha = result.get("commit", {}).get("sha", "unknown")
+            print(f"Tunnel info updated on GitHub after {reason}. Commit: {commit_sha}")
+            return True
+        except Exception as error:
+            last_error = str(error)
+            print(f"[WARN] GitHub sync attempt {attempt}/3 failed after {reason}: {last_error}")
+            if attempt < 3:
+                time.sleep(2)
+
+    save_failed_sync(summary_text, reason, last_error or "Unknown GitHub sync error")
+    print(f"[WARN] Saved unsent tunnel summary to {FAILED_SYNC_LOG}")
+    if details.get("tunnel_url"):
+        print("[INFO] Tunnel created successfully, but GitHub is unreachable from this machine.")
+    if fatal:
+        raise RuntimeError(last_error or f"GitHub sync failed after {reason}")
+    return False
 
 
 def run_command(
@@ -322,7 +384,7 @@ def login_with_github() -> dict[str, str | None]:
 
             if not summary_printed and (details["login_instruction"] or details["device_code"]):
                 print_summary(details)
-                sync_summary_to_github(details, "device code capture")
+                sync_summary_to_github(details, "device code capture", fatal=False)
                 print("Waiting for GitHub browser authentication to complete...")
                 summary_printed = True
                 github_synced = True
@@ -336,7 +398,7 @@ def login_with_github() -> dict[str, str | None]:
 
     if not github_synced and (details["login_instruction"] or details["device_code"]):
         print_summary(details)
-        sync_summary_to_github(details, "login stage")
+        sync_summary_to_github(details, "login stage", fatal=False)
 
     return details
 
@@ -386,7 +448,7 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
                             if tunnel_match:
                                 summary_details["tunnel_url"] = tunnel_match.group(0).rstrip(".)")
                                 print_summary(summary_details)
-                                sync_summary_to_github(summary_details, "tunnel URL detection")
+                                sync_summary_to_github(summary_details, "tunnel URL detection", fatal=False)
                                 print(f"Tunnel is running. Full log: {TUNNEL_LOG}")
                                 uploaded = True
                                 return
