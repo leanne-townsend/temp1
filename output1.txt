@@ -65,3 +65,9 @@ Device code: 9DF7CBB8
 Tunnel machine name: WIN-TARGET-2
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 094A-21FF
 Device code: 094A21FF
+
+[2026-05-26T19:40:52] Tunnel Summary
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 094A-21FF
+Device code: 094A21FF
+Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Users/defuser/Desktop
