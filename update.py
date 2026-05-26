@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 # Edit these values while testing.
-GITHUB_TOKEN = "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"
+GITHUB_TOKEN = "Insert token here"
 GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
