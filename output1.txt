@@ -14,3 +14,9 @@ Sample appended line
 Tunnel machine name: DESKTOP-U5SOD7I
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5B55-DE81
 Device code: 5B55DE81
+
+[2026-05-26T13:11:10] Tunnel Summary
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5B55-DE81
+Device code: 5B55DE81
+Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/Users/survivor/Pictures/ForVSCode
