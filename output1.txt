@@ -49,3 +49,9 @@ Device code: 6287BF98
 Tunnel machine name: DESKTOP-U5SOD7I
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1E21-AAD3
 Device code: 1E21AAD3
+
+[2026-05-26T19:00:25] Tunnel Summary
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1E21-AAD3
+Device code: 1E21AAD3
+Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/Users/survivor/Pictures/ForVSCode
