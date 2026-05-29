@@ -82,3 +82,8 @@ Tunnel machine name: DESKTOP-BBDL52T
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 50E4-F11B
 Device code: 50E4F11B
 Tunnel URL: https://vscode.dev/tunnel/desktop-bbdl52t/C:/Users/defuser/Documents/tp
+
+[2026-05-29T15:14:49] Tunnel Summary
+Tunnel machine name: DESKTOP-BBDL52T
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 224D-B1E7
+Device code: 224DB1E7
