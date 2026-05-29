@@ -104,3 +104,8 @@ Tunnel machine name: DESKTOP-EGTNQHD
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0C16-D9CC
 Device code: 0C16D9CC
 Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/System32
+
+[2026-05-29T17:16:54] Tunnel Summary
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 248F-0E64
+Device code: 248F0E64
