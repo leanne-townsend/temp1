@@ -87,3 +87,9 @@ Tunnel URL: https://vscode.dev/tunnel/desktop-bbdl52t/C:/Users/defuser/Documents
 Tunnel machine name: DESKTOP-BBDL52T
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 224D-B1E7
 Device code: 224DB1E7
+
+[2026-05-29T15:16:16] Tunnel Summary
+Tunnel machine name: DESKTOP-BBDL52T
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 224D-B1E7
+Device code: 224DB1E7
+Tunnel URL: https://vscode.dev/tunnel/desktop-bbdl52t/C:/Windows/system32
