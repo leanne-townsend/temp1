@@ -120,3 +120,9 @@ Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/system32
 Tunnel machine name: DESKTOP-EGTNQHD
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 21D6-1EB4
 Device code: 21D61EB4
+
+[2026-06-02T12:31:03] Tunnel Summary
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 21D6-1EB4
+Device code: 21D61EB4
+Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/system32
