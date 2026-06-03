@@ -158,3 +158,8 @@ Device code: EAFFDA03
 Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5D74-63AE
 Device code: 5D7463AE
+
+[2026-06-03T19:28:44] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code D805-E12F
+Device code: D805E12F
