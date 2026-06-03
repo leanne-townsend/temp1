@@ -218,3 +218,12 @@ Device code: 148C31F3
 Issued at: 2026-06-03T17:22:01
 Expires at: 2026-06-03T17:37:01
 Message: Code issue 1 of 10
+
+[2026-06-03T17:37:01] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 148C-31F3
+Device code: 148C31F3
+Issued at: 2026-06-03T17:22:01
+Expires at: 2026-06-03T17:37:01
+Message: Browser authentication was not completed before the code expired.
