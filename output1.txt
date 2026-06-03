@@ -471,3 +471,12 @@ Device code: 88DEF214
 Issued at: 2026-06-03T23:07:27
 Expires at: 2026-06-03T23:22:27
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T23:22:32] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 2D9D-038A
+Device code: 2D9D038A
+Issued at: 2026-06-03T23:22:31
+Expires at: 2026-06-03T23:37:31
+Message: Code issue 9 of 10
