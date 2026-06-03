@@ -381,3 +381,12 @@ Device code: 57DD8233
 Issued at: 2026-06-03T21:52:08
 Expires at: 2026-06-03T22:07:08
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T22:07:13] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1781-4B90
+Device code: 17814B90
+Issued at: 2026-06-03T22:07:12
+Expires at: 2026-06-03T22:22:12
+Message: Code issue 4 of 10
