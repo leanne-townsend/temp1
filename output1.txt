@@ -534,3 +534,12 @@ Device code: 86DEDF26
 Issued at: 2026-06-04T01:22:00
 Expires at: 2026-06-04T01:37:00
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T01:37:06] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3202-3BC4
+Device code: 32023BC4
+Issued at: 2026-06-04T01:37:04
+Expires at: 2026-06-04T01:52:04
+Message: Code issue 2 of 10
