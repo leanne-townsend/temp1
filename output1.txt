@@ -209,3 +209,12 @@ Issued at: 2026-06-03T13:37:26
 Expires at: 2026-06-03T13:52:26
 Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Users/defuser/Desktop
 Message: Browser authentication completed successfully.
+
+[2026-06-03T17:22:02] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 148C-31F3
+Device code: 148C31F3
+Issued at: 2026-06-03T17:22:01
+Expires at: 2026-06-03T17:37:01
+Message: Code issue 1 of 10
