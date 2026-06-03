@@ -453,3 +453,12 @@ Device code: FA9CEEDC
 Issued at: 2026-06-03T22:52:24
 Expires at: 2026-06-03T23:07:24
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T23:07:29] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 88DE-F214
+Device code: 88DEF214
+Issued at: 2026-06-03T23:07:27
+Expires at: 2026-06-03T23:22:27
+Message: Code issue 8 of 10
