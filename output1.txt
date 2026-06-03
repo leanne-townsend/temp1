@@ -705,3 +705,12 @@ Device code: 5AA8927F
 Issued at: 2026-06-04T03:37:35
 Expires at: 2026-06-04T03:52:35
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-04T05:22:02] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F30A-268B
+Device code: F30A268B
+Issued at: 2026-06-04T05:22:01
+Expires at: 2026-06-04T05:37:01
+Message: Code issue 1 of 10
