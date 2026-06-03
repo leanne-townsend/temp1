@@ -181,3 +181,12 @@ Device code: 31F4257B
 Issued at: 2026-06-03T13:22:22
 Expires at: 2026-06-03T13:37:22
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T13:37:27] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 4B6D-016C
+Device code: 4B6D016C
+Issued at: 2026-06-03T13:37:26
+Expires at: 2026-06-03T13:52:26
+Message: Code issue 2 of 10
