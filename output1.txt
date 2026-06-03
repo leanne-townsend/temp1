@@ -245,3 +245,12 @@ Device code: 2C47B88B
 Issued at: 2026-06-03T17:37:05
 Expires at: 2026-06-03T17:52:05
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T17:52:28] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F0FE-75BD
+Device code: F0FE75BD
+Issued at: 2026-06-03T17:52:25
+Expires at: 2026-06-03T18:07:25
+Message: Code issue 3 of 10
