@@ -327,3 +327,12 @@ Issued at: 2026-06-03T18:22:35
 Expires at: 2026-06-03T18:37:35
 Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Windows/system32
 Message: Browser authentication completed successfully.
+
+[2026-06-03T21:22:01] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C8CF-7C3C
+Device code: C8CF7C3C
+Issued at: 2026-06-03T21:22:00
+Expires at: 2026-06-03T21:37:00
+Message: Code issue 1 of 10
