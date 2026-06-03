@@ -660,3 +660,12 @@ Device code: BA8AFCE3
 Issued at: 2026-06-04T03:07:27
 Expires at: 2026-06-04T03:22:27
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T03:22:32] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6237-3864
+Device code: 62373864
+Issued at: 2026-06-04T03:22:31
+Expires at: 2026-06-04T03:37:31
+Message: Code issue 9 of 10
