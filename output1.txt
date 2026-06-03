@@ -516,3 +516,12 @@ Device code: 479AC8AE
 Issued at: 2026-06-03T23:37:35
 Expires at: 2026-06-03T23:52:35
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-04T01:22:02] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 86DE-DF26
+Device code: 86DEDF26
+Issued at: 2026-06-04T01:22:00
+Expires at: 2026-06-04T01:37:00
+Message: Code issue 1 of 10
