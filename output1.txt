@@ -399,3 +399,12 @@ Device code: 17814B90
 Issued at: 2026-06-03T22:07:12
 Expires at: 2026-06-03T22:22:12
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T22:22:16] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 41EC-88FC
+Device code: 41EC88FC
+Issued at: 2026-06-03T22:22:15
+Expires at: 2026-06-03T22:37:15
+Message: Code issue 5 of 10
