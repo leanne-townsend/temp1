@@ -272,3 +272,12 @@ Device code: BE3B1BF4
 Issued at: 2026-06-03T18:07:31
 Expires at: 2026-06-03T18:22:31
 Message: Code issue 4 of 10
+
+[2026-06-03T18:12:41] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8105-6E24
+Device code: 81056E24
+Issued at: 2026-06-03T18:12:38
+Expires at: 2026-06-03T18:27:38
+Message: Code issue 1 of 10
