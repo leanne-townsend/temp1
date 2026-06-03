@@ -525,3 +525,12 @@ Device code: 86DEDF26
 Issued at: 2026-06-04T01:22:00
 Expires at: 2026-06-04T01:37:00
 Message: Code issue 1 of 10
+
+[2026-06-04T01:37:00] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 86DE-DF26
+Device code: 86DEDF26
+Issued at: 2026-06-04T01:22:00
+Expires at: 2026-06-04T01:37:00
+Message: Browser authentication was not completed before the code expired.
