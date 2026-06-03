@@ -199,3 +199,13 @@ Device code: 4B6D016C
 Issued at: 2026-06-03T13:37:26
 Expires at: 2026-06-03T13:52:26
 Message: Browser authentication completed successfully.
+
+[2026-06-03T13:38:14] Tunnel Summary
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 4B6D-016C
+Device code: 4B6D016C
+Issued at: 2026-06-03T13:37:26
+Expires at: 2026-06-03T13:52:26
+Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Users/defuser/Desktop
+Message: Browser authentication completed successfully.
