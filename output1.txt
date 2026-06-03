@@ -308,3 +308,12 @@ Device code: F03AF7EE
 Issued at: 2026-06-03T18:22:35
 Expires at: 2026-06-03T18:37:35
 Message: Code issue 5 of 10
+
+[2026-06-03T18:24:01] Tunnel Summary
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F03A-F7EE
+Device code: F03AF7EE
+Issued at: 2026-06-03T18:22:35
+Expires at: 2026-06-03T18:37:35
+Message: Browser authentication completed successfully.
