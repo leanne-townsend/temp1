@@ -597,3 +597,12 @@ Device code: 3A967D6F
 Issued at: 2026-06-04T02:22:15
 Expires at: 2026-06-04T02:37:15
 Message: Code issue 5 of 10
+
+[2026-06-04T02:37:16] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3A96-7D6F
+Device code: 3A967D6F
+Issued at: 2026-06-04T02:22:15
+Expires at: 2026-06-04T02:37:15
+Message: Browser authentication was not completed before the code expired.
