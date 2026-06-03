@@ -624,3 +624,12 @@ Device code: 4D216B65
 Issued at: 2026-06-04T02:37:19
 Expires at: 2026-06-04T02:52:19
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T02:52:24] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 08E0-77E4
+Device code: 08E077E4
+Issued at: 2026-06-04T02:52:23
+Expires at: 2026-06-04T03:07:23
+Message: Code issue 7 of 10
