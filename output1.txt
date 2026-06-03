@@ -417,3 +417,12 @@ Device code: 41EC88FC
 Issued at: 2026-06-03T22:22:15
 Expires at: 2026-06-03T22:37:15
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T22:37:21] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3D3F-53FA
+Device code: 3D3F53FA
+Issued at: 2026-06-03T22:37:20
+Expires at: 2026-06-03T22:52:20
+Message: Code issue 6 of 10
