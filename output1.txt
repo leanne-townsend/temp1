@@ -570,3 +570,12 @@ Device code: E8BABDFB
 Issued at: 2026-06-04T01:52:07
 Expires at: 2026-06-04T02:07:07
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T02:07:12] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3622-FD5A
+Device code: 3622FD5A
+Issued at: 2026-06-04T02:07:11
+Expires at: 2026-06-04T02:22:11
+Message: Code issue 4 of 10
