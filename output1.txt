@@ -172,3 +172,12 @@ Device code: 31F4257B
 Issued at: 2026-06-03T13:22:22
 Expires at: 2026-06-03T13:37:22
 Message: Code issue 1 of 10
+
+[2026-06-03T13:37:23] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 31F4-257B
+Device code: 31F4257B
+Issued at: 2026-06-03T13:22:22
+Expires at: 2026-06-03T13:37:22
+Message: Browser authentication was not completed before the code expired.
