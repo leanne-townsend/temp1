@@ -336,3 +336,12 @@ Device code: C8CF7C3C
 Issued at: 2026-06-03T21:22:00
 Expires at: 2026-06-03T21:37:00
 Message: Code issue 1 of 10
+
+[2026-06-03T21:37:01] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C8CF-7C3C
+Device code: C8CF7C3C
+Issued at: 2026-06-03T21:22:00
+Expires at: 2026-06-03T21:37:00
+Message: Browser authentication was not completed before the code expired.
