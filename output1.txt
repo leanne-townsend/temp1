@@ -236,3 +236,12 @@ Device code: 2C47B88B
 Issued at: 2026-06-03T17:37:05
 Expires at: 2026-06-03T17:52:05
 Message: Code issue 2 of 10
+
+[2026-06-03T17:52:05] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 2C47-B88B
+Device code: 2C47B88B
+Issued at: 2026-06-03T17:37:05
+Expires at: 2026-06-03T17:52:05
+Message: Browser authentication was not completed before the code expired.
