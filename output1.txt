@@ -345,3 +345,12 @@ Device code: C8CF7C3C
 Issued at: 2026-06-03T21:22:00
 Expires at: 2026-06-03T21:37:00
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-03T21:37:05] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code ECF9-D8CF
+Device code: ECF9D8CF
+Issued at: 2026-06-03T21:37:04
+Expires at: 2026-06-03T21:52:04
+Message: Code issue 2 of 10
