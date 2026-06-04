@@ -56,3 +56,14 @@ Device code: 7CF709A4
 Issued at: 2026-06-04T17:55:30
 Expires at: 2026-06-04T18:10:30
 Message: Browser authentication completed successfully.
+
+[2026-06-04T17:56:27] Tunnel Summary
+Session ID: be97d712bd55
+Status: Tunnel active
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7CF7-09A4
+Device code: 7CF709A4
+Issued at: 2026-06-04T17:55:30
+Expires at: 2026-06-04T18:10:30
+Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Users/defuser/Desktop
+Message: Continuation of authenticated session.
