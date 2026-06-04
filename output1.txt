@@ -795,3 +795,12 @@ Device code: B398786F
 Issued at: 2026-06-04T06:22:16
 Expires at: 2026-06-04T06:37:16
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T06:37:21] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 2038-9A93
+Device code: 20389A93
+Issued at: 2026-06-04T06:37:20
+Expires at: 2026-06-04T06:52:20
+Message: Code issue 6 of 10
