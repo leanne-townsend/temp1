@@ -876,3 +876,12 @@ Device code: FACEABE9
 Issued at: 2026-06-04T07:37:36
 Expires at: 2026-06-04T07:52:36
 Message: Code issue 10 of 10
+
+[2026-06-04T07:52:36] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FACE-ABE9
+Device code: FACEABE9
+Issued at: 2026-06-04T07:37:36
+Expires at: 2026-06-04T07:52:36
+Message: Browser authentication was not completed before the code expired.
