@@ -183,3 +183,22 @@ Device code: 52CD7617
 Issued at: 2026-06-04T17:44:21
 Expires at: 2026-06-04T17:59:21
 Message: Browser authentication completed successfully.
+
+[2026-06-04T17:46:21] Tunnel Summary
+Session ID: 7b41aaafb422
+Status: Tunnel failed
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 52CD-7617
+Device code: 52CD7617
+Issued at: 2026-06-04T17:44:21
+Expires at: 2026-06-04T17:59:21
+Message: Tunnel command failed. Recent output: *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+[2026-06-04 12:15:58] warn Error connecting to relay, will retry: error connecting to tunnel: failed to update tunnel endpoint for hosting: connection error: error sending request for url (https://euw.rel.tunnels.api.visualstudio.com/tunnels/puzzled-ocean-d1s7p84/endpoints/a12d7601-51e7-4791-958d-01900ac6070a-relay?connectionMode=TunnelRelay&api-version=2023-09-27-preview)
+[2026-06-04 12:15:58] error Error connecting to tunnel endpoint: error connecting to tunnel: failed to update tunnel endpoint for hosting: connection error: error sending request for url (https://euw.rel.tunnels.api.visualstudio.com/tunnels/puzzled-ocean-d1s7p84/endpoints/a12d7601-51e7-4791-958d-01900ac6070a-relay?connectionMode=TunnelRelay&api-version=2023-09-27-preview)
+[2026-06-04 12:16:21] error error connecting to tunnel: failed to update tunnel endpoint for hosting: connection error: error sending request for url (https://euw.rel.tunnels.api.visualstudio.com/tunnels/puzzled-ocean-d1s7p84/endpoints/a12d7601-51e7-4791-958d-01900ac6070a-relay?connectionMode=TunnelRelay&api-version=2023-09-27-preview)
