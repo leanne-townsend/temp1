@@ -984,3 +984,12 @@ Device code: E3F32ED7
 Issued at: 2026-06-04T10:22:28
 Expires at: 2026-06-04T10:37:28
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T10:37:40] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 845B-B0F3
+Device code: 845BB0F3
+Issued at: 2026-06-04T10:37:37
+Expires at: 2026-06-04T10:52:37
+Message: Code issue 6 of 10
