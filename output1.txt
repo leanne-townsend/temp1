@@ -45,3 +45,12 @@ Device code: 49EE0DF2
 Issued at: 2026-06-04T13:22:01
 Expires at: 2026-06-04T13:37:01
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T13:37:07] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 354B-900C
+Device code: 354B900C
+Issued at: 2026-06-04T13:37:05
+Expires at: 2026-06-04T13:52:05
+Message: Code issue 2 of 10
