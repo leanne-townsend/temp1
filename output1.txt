@@ -912,3 +912,12 @@ Device code: 1711800E
 Issued at: 2026-06-04T09:22:01
 Expires at: 2026-06-04T09:37:01
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T09:37:05] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F51D-DB1E
+Device code: F51DDB1E
+Issued at: 2026-06-04T09:37:04
+Expires at: 2026-06-04T09:52:04
+Message: Code issue 2 of 10
