@@ -82,3 +82,12 @@ Login instruction: [2026-06-04 10:10:07] error error requesting https://github.c
 Issued at: 2026-06-04T15:39:46
 Expires at: 2026-06-04T15:54:46
 Message: Code issue 1 of 3
+
+[2026-06-04T17:12:17] Tunnel Summary
+Session ID: d904b13635ea
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: [2026-06-04 11:42:17] error error requesting https://github.com/login/device/code: error sending request for url (https://github.com/login/device/code)
+Issued at: 2026-06-04T17:11:55
+Expires at: 2026-06-04T17:26:55
+Message: Code issue 1 of 3
