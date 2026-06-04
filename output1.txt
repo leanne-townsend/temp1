@@ -27,3 +27,12 @@ Issued at: 2026-06-04T12:43:20
 Expires at: 2026-06-04T12:58:20
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
 Message: Browser authentication completed successfully.
+
+[2026-06-04T13:22:03] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 49EE-0DF2
+Device code: 49EE0DF2
+Issued at: 2026-06-04T13:22:01
+Expires at: 2026-06-04T13:37:01
+Message: Code issue 1 of 10
