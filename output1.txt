@@ -73,3 +73,12 @@ Issued at: 2026-06-04T13:37:05
 Expires at: 2026-06-04T13:52:05
 Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Windows/system32
 Message: Browser authentication completed successfully.
+
+[2026-06-04T15:40:08] Tunnel Summary
+Session ID: 7e16b631b5b0
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: [2026-06-04 10:10:07] error error requesting https://github.com/login/device/code: error sending request for url (https://github.com/login/device/code)
+Issued at: 2026-06-04T15:39:46
+Expires at: 2026-06-04T15:54:46
+Message: Code issue 1 of 3
