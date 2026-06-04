@@ -948,3 +948,12 @@ Device code: 8776280C
 Issued at: 2026-06-04T09:52:08
 Expires at: 2026-06-04T10:07:08
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T10:07:13] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C12B-08E1
+Device code: C12B08E1
+Issued at: 2026-06-04T10:07:12
+Expires at: 2026-06-04T10:22:12
+Message: Code issue 4 of 10
