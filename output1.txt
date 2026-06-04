@@ -966,3 +966,12 @@ Device code: C12B08E1
 Issued at: 2026-06-04T10:07:12
 Expires at: 2026-06-04T10:22:12
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T10:22:30] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code E3F3-2ED7
+Device code: E3F32ED7
+Issued at: 2026-06-04T10:22:28
+Expires at: 2026-06-04T10:37:28
+Message: Code issue 5 of 10
