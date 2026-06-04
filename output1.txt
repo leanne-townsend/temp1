@@ -19,3 +19,14 @@ Device code: CE217CC5
 Issued at: 2026-06-04T18:02:29
 Expires at: 2026-06-04T18:17:29
 Message: Browser authentication completed successfully.
+
+[2026-06-04T18:03:21] Tunnel Summary
+Session ID: 5b10f870da02
+Status: Tunnel active
+Tunnel machine name: WIN-TARGET-3
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code CE21-7CC5
+Device code: CE217CC5
+Issued at: 2026-06-04T18:02:29
+Expires at: 2026-06-04T18:17:29
+Tunnel URL: https://vscode.dev/tunnel/win-target-3/C:/Users/defuser/Downloads
+Message: Continuation of authenticated session.
