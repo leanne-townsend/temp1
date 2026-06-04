@@ -101,3 +101,13 @@ Device code: C4E825DF
 Issued at: 2026-06-04T17:13:53
 Expires at: 2026-06-04T17:28:53
 Message: Code issue 1 of 3
+
+[2026-06-04T17:15:01] Tunnel Summary
+Session ID: 5c91c4a58f55
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C4E8-25DF
+Device code: C4E825DF
+Issued at: 2026-06-04T17:13:53
+Expires at: 2026-06-04T17:28:53
+Message: Browser authentication completed successfully.
