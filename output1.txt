@@ -957,3 +957,12 @@ Device code: C12B08E1
 Issued at: 2026-06-04T10:07:12
 Expires at: 2026-06-04T10:22:12
 Message: Code issue 4 of 10
+
+[2026-06-04T10:22:13] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C12B-08E1
+Device code: C12B08E1
+Issued at: 2026-06-04T10:07:12
+Expires at: 2026-06-04T10:22:12
+Message: Browser authentication was not completed before the code expired.
