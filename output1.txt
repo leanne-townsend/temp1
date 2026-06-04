@@ -849,3 +849,12 @@ Device code: A68A4B97
 Issued at: 2026-06-04T07:07:28
 Expires at: 2026-06-04T07:22:28
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T07:22:33] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code BFCA-1C4E
+Device code: BFCA1C4E
+Issued at: 2026-06-04T07:22:32
+Expires at: 2026-06-04T07:37:32
+Message: Code issue 9 of 10
