@@ -741,3 +741,12 @@ Device code: A88D0DE6
 Issued at: 2026-06-04T05:37:05
 Expires at: 2026-06-04T05:52:05
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T05:52:09] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8DE6-A940
+Device code: 8DE6A940
+Issued at: 2026-06-04T05:52:08
+Expires at: 2026-06-04T06:07:08
+Message: Code issue 3 of 10
