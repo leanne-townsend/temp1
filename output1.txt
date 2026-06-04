@@ -831,3 +831,12 @@ Device code: 09580DCC
 Issued at: 2026-06-04T06:52:24
 Expires at: 2026-06-04T07:07:24
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T07:07:29] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A68A-4B97
+Device code: A68A4B97
+Issued at: 2026-06-04T07:07:28
+Expires at: 2026-06-04T07:22:28
+Message: Code issue 8 of 10
