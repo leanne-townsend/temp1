@@ -1020,3 +1020,12 @@ Device code: D46B501D
 Issued at: 2026-06-04T10:52:41
 Expires at: 2026-06-04T11:07:41
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-04T11:07:46] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A967-CC66
+Device code: A967CC66
+Issued at: 2026-06-04T11:07:45
+Expires at: 2026-06-04T11:22:45
+Message: Code issue 8 of 10
