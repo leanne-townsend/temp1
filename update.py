@@ -238,6 +238,7 @@ def print_runtime_diagnostics() -> None:
     print(f"[INFO] Launch admin/elevated: {IS_ADMIN_CONTEXT}")
     print(f"[INFO] State mode: {STATE_MODE}")
     print(f"[INFO] Resolved state directory: {CODE_DIR}")
+    print(f"[INFO] Resolved VS Code executable path: {CODE_EXE}")
     print(f"[INFO] Resolved pythonw path: {resolve_pythonw_executable()}")
     print(f"[INFO] Resolved runtime script path: {resolve_runtime_script_path()}")
 
@@ -398,7 +399,11 @@ def format_timestamp(epoch_seconds: float | None) -> str | None:
 
 
 def update_login_details_from_line(details: dict[str, str | None], cleaned_line: str) -> None:
-    if details["login_instruction"] is None and "log into" in cleaned_line.lower() and "use code" in cleaned_line.lower():
+    lowered_line = cleaned_line.lower()
+    if "error" in lowered_line:
+        return
+
+    if details["login_instruction"] is None and "log into" in lowered_line and "use code" in lowered_line:
         details["login_instruction"] = cleaned_line
 
     if details["device_code"] is None:
@@ -419,7 +424,7 @@ def acquire_run_lock() -> None:
         stale_pid = RUN_LOCK.read_text(encoding="utf-8", errors="replace").strip()
         if stale_pid and stale_pid != current_pid:
             raise RuntimeError(
-                f"Another combined.py run is already active for this machine. Lock file: {RUN_LOCK}"
+                f"Another update.py run is already active for this machine. Lock file: {RUN_LOCK}"
             )
 
     RUN_LOCK.write_text(current_pid, encoding="utf-8")
