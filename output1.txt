@@ -894,3 +894,12 @@ Device code: FACEABE9
 Issued at: 2026-06-04T07:37:36
 Expires at: 2026-06-04T07:52:36
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-04T09:22:02] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1711-800E
+Device code: 1711800E
+Issued at: 2026-06-04T09:22:01
+Expires at: 2026-06-04T09:37:01
+Message: Code issue 1 of 10
