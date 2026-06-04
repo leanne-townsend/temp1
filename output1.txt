@@ -939,3 +939,12 @@ Device code: 8776280C
 Issued at: 2026-06-04T09:52:08
 Expires at: 2026-06-04T10:07:08
 Message: Code issue 3 of 10
+
+[2026-06-04T10:07:09] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8776-280C
+Device code: 8776280C
+Issued at: 2026-06-04T09:52:08
+Expires at: 2026-06-04T10:07:08
+Message: Browser authentication was not completed before the code expired.
