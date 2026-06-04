@@ -1,1 +1,11 @@
 
+
+[2026-06-04T18:02:31] Tunnel Summary
+Session ID: 5b10f870da02
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-3
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code CE21-7CC5
+Device code: CE217CC5
+Issued at: 2026-06-04T18:02:29
+Expires at: 2026-06-04T18:17:29
+Message: Code issue 1 of 3
