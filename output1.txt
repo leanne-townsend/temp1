@@ -60,3 +60,13 @@ Device code: 24E9D2ED
 Issued at: 2026-06-05T02:10:05
 Expires at: 2026-06-05T02:25:05
 Message: Code issue 2 of 3
+
+[2026-06-05T02:25:06] Tunnel Summary
+Session ID: 38544fc8892c
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 24E9-D2ED
+Device code: 24E9D2ED
+Issued at: 2026-06-05T02:10:05
+Expires at: 2026-06-05T02:25:05
+Message: Browser authentication was not completed before the code expired.
