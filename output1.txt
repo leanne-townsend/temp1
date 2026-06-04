@@ -142,3 +142,14 @@ Device code: 002F086E
 Issued at: 2026-06-04T17:29:57
 Expires at: 2026-06-04T17:44:57
 Message: Browser authentication completed successfully.
+
+[2026-06-04T17:30:51] Tunnel Summary
+Session ID: e3e2c59f5aa1
+Status: Tunnel active
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 002F-086E
+Device code: 002F086E
+Issued at: 2026-06-04T17:29:57
+Expires at: 2026-06-04T17:44:57
+Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/Users/survivor/Pictures/ForVSCode
+Message: Continuation of authenticated session.
