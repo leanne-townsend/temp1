@@ -732,3 +732,12 @@ Device code: A88D0DE6
 Issued at: 2026-06-04T05:37:05
 Expires at: 2026-06-04T05:52:05
 Message: Code issue 2 of 10
+
+[2026-06-04T05:52:05] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A88D-0DE6
+Device code: A88D0DE6
+Issued at: 2026-06-04T05:37:05
+Expires at: 2026-06-04T05:52:05
+Message: Browser authentication was not completed before the code expired.
