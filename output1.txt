@@ -19,3 +19,20 @@ Device code: 6DB52888
 Issued at: 2026-06-04T17:49:03
 Expires at: 2026-06-04T18:04:03
 Message: Browser authentication completed successfully.
+
+[2026-06-04T17:50:15] Tunnel Summary
+Session ID: 66ea8175ba3d
+Status: Tunnel failed
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6DB5-2888
+Device code: 6DB52888
+Issued at: 2026-06-04T17:49:03
+Expires at: 2026-06-04T18:04:03
+Message: Tunnel command failed. Recent output: *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+[2026-06-04 12:20:14] error failed to lookup tunnel: connection error: error sending request for url (https://euw.rel.tunnels.api.visualstudio.com/tunnels/puzzled-ocean-d1s7p84?includePorts=true&tokenScopes=host&api-version=2023-09-27-preview)
