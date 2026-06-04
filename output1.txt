@@ -90,3 +90,13 @@ Device code: 97EE9B5B
 Issued at: 2026-06-05T02:25:12
 Expires at: 2026-06-05T02:40:12
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-05T02:40:18] Tunnel Summary
+Session ID: 38544fc8892c
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 97EE-9B5B
+Device code: 97EE9B5B
+Issued at: 2026-06-05T02:25:12
+Expires at: 2026-06-05T02:40:12
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
