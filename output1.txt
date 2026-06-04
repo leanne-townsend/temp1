@@ -50,3 +50,13 @@ Device code: BCA60E80
 Issued at: 2026-06-05T01:55:01
 Expires at: 2026-06-05T02:10:01
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-05T02:10:07] Tunnel Summary
+Session ID: 38544fc8892c
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 24E9-D2ED
+Device code: 24E9D2ED
+Issued at: 2026-06-05T02:10:05
+Expires at: 2026-06-05T02:25:05
+Message: Code issue 2 of 3
