@@ -42,7 +42,7 @@ LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devic
 TASK_NAME = "VSCodeTunnelDeploy"
 PROGRAM_DATA_ROOT = Path(r"C:\ProgramData\VSCodeTunnel")
 PROGRAM_DATA_PYTHONW = Path(r"C:\ProgramData\Python\pythonw.exe")
-PROGRAM_DATA_SCRIPT = PROGRAM_DATA_ROOT / "update.py"
+PROGRAM_DATA_SCRIPT = Path(r"C:\ProgramData\Python\update.py")
 USER_LOCAL_PYTHONW = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "pythonw.exe"
 USER_LOCAL_SCRIPT = Path(os.getenv("LOCALAPPDATA", "")) / "Microsoft" / "Python" / "update.py"
 
@@ -503,7 +503,7 @@ def ensure_code_cli() -> None:
 def validate_github_config() -> None:
     if "/" not in GITHUB_REPO:
         raise ValueError("GITHUB_REPO must look like 'owner/repo'.")
-    if not GITHUB_TOKEN or GITHUB_TOKEN == "replace-with-your-github-token":
+    if not GITHUB_TOKEN or GITHUB_TOKEN == "your_token_here":
         raise ValueError("Set GITHUB_TOKEN before running this script.")
 
 
