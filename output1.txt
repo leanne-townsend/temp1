@@ -173,3 +173,13 @@ Device code: 52CD7617
 Issued at: 2026-06-04T17:44:21
 Expires at: 2026-06-04T17:59:21
 Message: Code issue 1 of 3
+
+[2026-06-04T17:45:17] Tunnel Summary
+Session ID: 7b41aaafb422
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 52CD-7617
+Device code: 52CD7617
+Issued at: 2026-06-04T17:44:21
+Expires at: 2026-06-04T17:59:21
+Message: Browser authentication completed successfully.
