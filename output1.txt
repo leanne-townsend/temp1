@@ -786,3 +786,12 @@ Device code: B398786F
 Issued at: 2026-06-04T06:22:16
 Expires at: 2026-06-04T06:37:16
 Message: Code issue 5 of 10
+
+[2026-06-04T06:37:17] Tunnel Summary
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B398-786F
+Device code: B398786F
+Issued at: 2026-06-04T06:22:16
+Expires at: 2026-06-04T06:37:16
+Message: Browser authentication was not completed before the code expired.
