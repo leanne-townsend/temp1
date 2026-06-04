@@ -1038,3 +1038,13 @@ Device code: A967CC66
 Issued at: 2026-06-04T11:07:45
 Expires at: 2026-06-04T11:22:45
 Message: Browser authentication completed successfully.
+
+[2026-06-04T11:16:46] Tunnel Summary
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A967-CC66
+Device code: A967CC66
+Issued at: 2026-06-04T11:07:45
+Expires at: 2026-06-04T11:22:45
+Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Windows/system32
+Message: Browser authentication completed successfully.
