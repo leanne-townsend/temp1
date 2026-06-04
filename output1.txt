@@ -122,3 +122,13 @@ Issued at: 2026-06-04T17:13:53
 Expires at: 2026-06-04T17:28:53
 Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/ProgramData/Python
 Message: Continuation of authenticated session.
+
+[2026-06-04T17:30:00] Tunnel Summary
+Session ID: e3e2c59f5aa1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 002F-086E
+Device code: 002F086E
+Issued at: 2026-06-04T17:29:57
+Expires at: 2026-06-04T17:44:57
+Message: Code issue 1 of 3
