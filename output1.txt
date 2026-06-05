@@ -69,3 +69,13 @@ Device code: 74E56BCC
 Issued at: 2026-06-05T14:25:09
 Expires at: 2026-06-05T14:40:09
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-05T16:17:36] Tunnel Summary
+Session ID: 23b1221b5de3
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B577-1CDF
+Device code: B5771CDF
+Issued at: 2026-06-05T16:17:33
+Expires at: 2026-06-05T16:32:33
+Message: Code issue 1 of 3
