@@ -180,3 +180,13 @@ Device code: 53901D0A
 Issued at: 2026-06-05T09:55:01
 Expires at: 2026-06-05T10:10:01
 Message: Code issue 1 of 3
+
+[2026-06-05T10:10:02] Tunnel Summary
+Session ID: 24e288d0cd1e
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5390-1D0A
+Device code: 53901D0A
+Issued at: 2026-06-05T09:55:01
+Expires at: 2026-06-05T10:10:01
+Message: Browser authentication was not completed before the code expired.
