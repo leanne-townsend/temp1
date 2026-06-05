@@ -111,3 +111,14 @@ Device code: CB6D0F3C
 Issued at: 2026-06-05T18:11:58
 Expires at: 2026-06-05T18:26:58
 Message: Browser authentication completed successfully.
+
+[2026-06-05T18:18:53] Tunnel Summary
+Session ID: 0b7b4e670942
+Status: Tunnel active
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code CB6D-0F3C
+Device code: CB6D0F3C
+Issued at: 2026-06-05T18:11:58
+Expires at: 2026-06-05T18:26:58
+Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/System32
+Message: Continuation of authenticated session.
