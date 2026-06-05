@@ -262,3 +262,13 @@ Device code: 3ACC77F0
 Issued at: 2026-06-06T02:25:15
 Expires at: 2026-06-06T02:40:15
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T02:40:20] Tunnel Summary
+Session ID: 7ad1b60d3bca
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3ACC-77F0
+Device code: 3ACC77F0
+Issued at: 2026-06-06T02:25:15
+Expires at: 2026-06-06T02:40:15
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
