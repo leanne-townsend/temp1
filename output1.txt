@@ -19,3 +19,14 @@ Device code: 13E86CF1
 Issued at: 2026-06-05T16:32:23
 Expires at: 2026-06-05T16:47:23
 Message: Browser authentication completed successfully.
+
+[2026-06-05T16:33:26] Tunnel Summary
+Session ID: 9b6e70704c10
+Status: Tunnel active
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 13E8-6CF1
+Device code: 13E86CF1
+Issued at: 2026-06-05T16:32:23
+Expires at: 2026-06-05T16:47:23
+Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Windows/system32
+Message: Continuation of authenticated session.
