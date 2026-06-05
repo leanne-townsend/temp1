@@ -232,3 +232,13 @@ Device code: 112011F0
 Issued at: 2026-06-06T02:10:11
 Expires at: 2026-06-06T02:25:11
 Message: Code issue 2 of 3
+
+[2026-06-06T02:25:12] Tunnel Summary
+Session ID: 7ad1b60d3bca
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1120-11F0
+Device code: 112011F0
+Issued at: 2026-06-06T02:10:11
+Expires at: 2026-06-06T02:25:11
+Message: Browser authentication was not completed before the code expired.
