@@ -122,3 +122,13 @@ Issued at: 2026-06-05T18:11:58
 Expires at: 2026-06-05T18:26:58
 Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/System32
 Message: Continuation of authenticated session.
+
+[2026-06-05T18:25:20] Tunnel Summary
+Session ID: a468be250562
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B59E-41F1
+Device code: B59E41F1
+Issued at: 2026-06-05T18:10:19
+Expires at: 2026-06-05T18:25:19
+Message: Browser authentication was not completed before the code expired.
