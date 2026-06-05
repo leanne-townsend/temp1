@@ -89,3 +89,14 @@ Device code: B5771CDF
 Issued at: 2026-06-05T16:17:33
 Expires at: 2026-06-05T16:32:33
 Message: Browser authentication completed successfully.
+
+[2026-06-05T16:18:49] Tunnel Summary
+Session ID: 23b1221b5de3
+Status: Tunnel active
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B577-1CDF
+Device code: B5771CDF
+Issued at: 2026-06-05T16:17:33
+Expires at: 2026-06-05T16:32:33
+Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Windows/system32
+Message: Continuation of authenticated session.
