@@ -202,3 +202,13 @@ Device code: 1FB07EB5
 Issued at: 2026-06-05T22:25:16
 Expires at: 2026-06-05T22:40:16
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-06T01:55:10] Tunnel Summary
+Session ID: 7ad1b60d3bca
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 54A0-1375
+Device code: 54A01375
+Issued at: 2026-06-06T01:55:08
+Expires at: 2026-06-06T02:10:08
+Message: Code issue 1 of 3
