@@ -30,3 +30,13 @@ Issued at: 2026-06-05T16:32:23
 Expires at: 2026-06-05T16:47:23
 Tunnel URL: https://vscode.dev/tunnel/win-target-2/C:/Windows/system32
 Message: Continuation of authenticated session.
+
+[2026-06-05T16:43:19] Tunnel Summary
+Session ID: 11f3c0483569
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6A18-89CF
+Device code: 6A1889CF
+Issued at: 2026-06-05T16:43:14
+Expires at: 2026-06-05T16:58:14
+Message: Code issue 1 of 3
