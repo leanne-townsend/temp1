@@ -100,3 +100,13 @@ Device code: 97EE9B5B
 Issued at: 2026-06-05T02:25:12
 Expires at: 2026-06-05T02:40:12
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-05T05:55:04] Tunnel Summary
+Session ID: 0ac2d488e1a9
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6DD3-D6B4
+Device code: 6DD3D6B4
+Issued at: 2026-06-05T05:55:01
+Expires at: 2026-06-05T06:10:01
+Message: Code issue 1 of 3
