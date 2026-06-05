@@ -61,3 +61,13 @@ Issued at: 2026-06-05T16:43:14
 Expires at: 2026-06-05T16:58:14
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/Windows/System32
 Message: Continuation of authenticated session.
+
+[2026-06-05T17:55:11] Tunnel Summary
+Session ID: a468be250562
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8FDB-0437
+Device code: 8FDB0437
+Issued at: 2026-06-05T17:55:09
+Expires at: 2026-06-05T18:10:09
+Message: Code issue 1 of 3
