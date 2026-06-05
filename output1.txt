@@ -240,3 +240,12 @@ Device code: 94ACDB21
 Issued at: 2026-06-05T10:25:13
 Expires at: 2026-06-05T10:40:13
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-05T13:09:59] Tunnel Summary
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 9BB4-809C
+Device code: 9BB4809C
+Issued at: 2026-06-05T13:09:56
+Expires at: 2026-06-05T13:24:56
+Message: Code issue 1 of 10
