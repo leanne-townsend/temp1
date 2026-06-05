@@ -242,3 +242,13 @@ Device code: 112011F0
 Issued at: 2026-06-06T02:10:11
 Expires at: 2026-06-06T02:25:11
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T02:25:17] Tunnel Summary
+Session ID: 7ad1b60d3bca
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3ACC-77F0
+Device code: 3ACC77F0
+Issued at: 2026-06-06T02:25:15
+Expires at: 2026-06-06T02:40:15
+Message: Code issue 3 of 3
