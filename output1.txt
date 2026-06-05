@@ -192,3 +192,13 @@ Device code: 1FB07EB5
 Issued at: 2026-06-05T22:25:16
 Expires at: 2026-06-05T22:40:16
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-05T22:40:21] Tunnel Summary
+Session ID: 2f2777794494
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1FB0-7EB5
+Device code: 1FB07EB5
+Issued at: 2026-06-05T22:25:16
+Expires at: 2026-06-05T22:40:16
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
