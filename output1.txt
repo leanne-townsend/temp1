@@ -150,3 +150,13 @@ Device code: F14FD095
 Issued at: 2026-06-05T06:25:21
 Expires at: 2026-06-05T06:40:21
 Message: Code issue 3 of 3
+
+[2026-06-05T06:40:22] Tunnel Summary
+Session ID: 0ac2d488e1a9
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F14F-D095
+Device code: F14FD095
+Issued at: 2026-06-05T06:25:21
+Expires at: 2026-06-05T06:40:21
+Message: Browser authentication was not completed before the code expired.
