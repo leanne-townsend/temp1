@@ -132,3 +132,13 @@ Device code: B59E41F1
 Issued at: 2026-06-05T18:10:19
 Expires at: 2026-06-05T18:25:19
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-05T21:55:11] Tunnel Summary
+Session ID: 2f2777794494
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0AFA-551A
+Device code: 0AFA551A
+Issued at: 2026-06-05T21:55:09
+Expires at: 2026-06-05T22:10:09
+Message: Code issue 1 of 3
