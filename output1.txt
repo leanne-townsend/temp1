@@ -230,3 +230,13 @@ Device code: 94ACDB21
 Issued at: 2026-06-05T10:25:13
 Expires at: 2026-06-05T10:40:13
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-05T10:40:27] Tunnel Summary
+Session ID: 24e288d0cd1e
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 94AC-DB21
+Device code: 94ACDB21
+Issued at: 2026-06-05T10:25:13
+Expires at: 2026-06-05T10:40:13
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
