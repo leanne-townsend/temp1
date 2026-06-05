@@ -1,1 +1,11 @@
 
+
+[2026-06-05T13:55:03] Tunnel Summary
+Session ID: e2df10bc751e
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 9C6C-5410
+Device code: 9C6C5410
+Issued at: 2026-06-05T13:55:01
+Expires at: 2026-06-05T14:10:01
+Message: Code issue 1 of 3
