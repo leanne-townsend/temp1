@@ -101,3 +101,13 @@ Device code: CB6D0F3C
 Issued at: 2026-06-05T18:11:58
 Expires at: 2026-06-05T18:26:58
 Message: Code issue 1 of 3
+
+[2026-06-05T18:18:33] Tunnel Summary
+Session ID: 0b7b4e670942
+Status: Authenticated
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code CB6D-0F3C
+Device code: CB6D0F3C
+Issued at: 2026-06-05T18:11:58
+Expires at: 2026-06-05T18:26:58
+Message: Browser authentication completed successfully.
