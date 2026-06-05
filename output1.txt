@@ -212,3 +212,13 @@ Device code: 54A01375
 Issued at: 2026-06-06T01:55:08
 Expires at: 2026-06-06T02:10:08
 Message: Code issue 1 of 3
+
+[2026-06-06T02:10:08] Tunnel Summary
+Session ID: 7ad1b60d3bca
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 54A0-1375
+Device code: 54A01375
+Issued at: 2026-06-06T01:55:08
+Expires at: 2026-06-06T02:10:08
+Message: Browser authentication was not completed before the code expired.
