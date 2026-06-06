@@ -312,3 +312,13 @@ Device code: A3198221
 Issued at: 2026-06-06T06:10:12
 Expires at: 2026-06-06T06:25:12
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T06:25:18] Tunnel Summary
+Session ID: c5ed8afbc92f
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F87C-E919
+Device code: F87CE919
+Issued at: 2026-06-06T06:25:16
+Expires at: 2026-06-06T06:40:16
+Message: Code issue 3 of 3
