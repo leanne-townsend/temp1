@@ -362,3 +362,13 @@ Device code: 94F06CEF
 Issued at: 2026-06-06T09:55:08
 Expires at: 2026-06-06T10:10:08
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T10:10:14] Tunnel Summary
+Session ID: b78b4c6aaf1d
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 9268-54FD
+Device code: 926854FD
+Issued at: 2026-06-06T10:10:12
+Expires at: 2026-06-06T10:25:12
+Message: Code issue 2 of 3
