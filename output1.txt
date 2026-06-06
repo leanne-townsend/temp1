@@ -402,3 +402,13 @@ Device code: 6880A64E
 Issued at: 2026-06-06T10:25:16
 Expires at: 2026-06-06T10:40:16
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T10:40:20] Tunnel Summary
+Session ID: b78b4c6aaf1d
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6880-A64E
+Device code: 6880A64E
+Issued at: 2026-06-06T10:25:16
+Expires at: 2026-06-06T10:40:16
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
