@@ -332,3 +332,13 @@ Device code: F87CE919
 Issued at: 2026-06-06T06:25:16
 Expires at: 2026-06-06T06:40:16
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T06:40:20] Tunnel Summary
+Session ID: c5ed8afbc92f
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F87C-E919
+Device code: F87CE919
+Issued at: 2026-06-06T06:25:16
+Expires at: 2026-06-06T06:40:16
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
