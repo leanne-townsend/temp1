@@ -392,3 +392,13 @@ Device code: 6880A64E
 Issued at: 2026-06-06T10:25:16
 Expires at: 2026-06-06T10:40:16
 Message: Code issue 3 of 3
+
+[2026-06-06T10:40:16] Tunnel Summary
+Session ID: b78b4c6aaf1d
+Status: Expired
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6880-A64E
+Device code: 6880A64E
+Issued at: 2026-06-06T10:25:16
+Expires at: 2026-06-06T10:40:16
+Message: Browser authentication was not completed before the code expired.
