@@ -292,3 +292,13 @@ Device code: 5D4A86FA
 Issued at: 2026-06-06T05:55:08
 Expires at: 2026-06-06T06:10:08
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-06T06:10:14] Tunnel Summary
+Session ID: c5ed8afbc92f
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A319-8221
+Device code: A3198221
+Issued at: 2026-06-06T06:10:12
+Expires at: 2026-06-06T06:25:12
+Message: Code issue 2 of 3
