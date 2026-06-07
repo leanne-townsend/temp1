@@ -92,3 +92,13 @@ Device code: AC2B9F45
 Issued at: 2026-06-08T01:24:10
 Expires at: 2026-06-08T01:39:10
 Message: Code issue 1 of 10
+
+[2026-06-08T01:29:23] Tunnel Summary
+Session ID: 1354b8596ccd
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 4FD5-D1F6
+Device code: 4FD5D1F6
+Issued at: 2026-06-08T01:29:20
+Expires at: 2026-06-08T01:44:20
+Message: Code issue 1 of 10
