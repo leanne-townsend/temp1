@@ -1,1 +1,11 @@
 
+
+[2026-06-07T22:16:52] Tunnel Summary
+Session ID: 2a3f470da1d0
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code D943-F0C0
+Device code: D943F0C0
+Issued at: 2026-06-07T22:16:49
+Expires at: 2026-06-07T22:31:49
+Message: Code issue 1 of 3
