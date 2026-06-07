@@ -231,3 +231,19 @@ Device code: 69B2D8E1
 Issued at: 2026-06-08T01:57:57
 Expires at: 2026-06-08T02:12:57
 Message: Browser authentication completed successfully.
+
+[2026-06-08T02:01:15] Tunnel Summary
+Session ID: 51cf3bb2d2bc
+Status: Tunnel pending
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 69B2-D8E1
+Device code: 69B2D8E1
+Issued at: 2026-06-08T01:57:57
+Expires at: 2026-06-08T02:12:57
+Message: Timed out waiting for tunnel URL. Recent output: *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
