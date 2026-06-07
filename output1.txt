@@ -30,3 +30,13 @@ Device code: 4640C156
 Issued at: 2026-06-08T01:14:22
 Expires at: 2026-06-08T01:29:22
 Message: Code issue 1 of 10
+
+[2026-06-08T01:15:06] Tunnel Summary
+Session ID: 17cad69d2f47
+Status: Authenticated
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 4640-C156
+Device code: 4640C156
+Issued at: 2026-06-08T01:14:22
+Expires at: 2026-06-08T01:29:22
+Message: Browser authentication completed successfully.
