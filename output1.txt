@@ -51,3 +51,13 @@ Issued at: 2026-06-08T01:14:22
 Expires at: 2026-06-08T01:29:22
 Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Windows/system32
 Message: Continuation of authenticated session.
+
+[2026-06-08T01:18:50] Tunnel Summary
+Session ID: 0384956f23e7
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B2C8-C1D4
+Device code: B2C8C1D4
+Issued at: 2026-06-08T01:18:48
+Expires at: 2026-06-08T01:33:48
+Message: Code issue 1 of 10
