@@ -20,3 +20,13 @@ Issued at: 2026-06-08T00:31:26
 Expires at: 2026-06-08T00:46:26
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/ProgramData/Python
 Message: Continuation of authenticated session.
+
+[2026-06-08T01:14:24] Tunnel Summary
+Session ID: 17cad69d2f47
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 4640-C156
+Device code: 4640C156
+Issued at: 2026-06-08T01:14:22
+Expires at: 2026-06-08T01:29:22
+Message: Code issue 1 of 10
