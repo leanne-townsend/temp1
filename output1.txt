@@ -180,3 +180,13 @@ Device code: AC2B9F45
 Issued at: 2026-06-08T01:24:10
 Expires at: 2026-06-08T01:39:10
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-08T01:39:15] Tunnel Summary
+Session ID: 74177e19ab2b
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code D18F-DA20
+Device code: D18FDA20
+Issued at: 2026-06-08T01:39:13
+Expires at: 2026-06-08T01:54:13
+Message: Code issue 2 of 10
