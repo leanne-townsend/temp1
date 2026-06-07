@@ -122,3 +122,20 @@ Device code: EAEBC701
 Issued at: 2026-06-08T01:31:06
 Expires at: 2026-06-08T01:46:06
 Message: Browser authentication completed successfully.
+
+[2026-06-08T01:33:34] Tunnel Summary
+Session ID: 42e933e02ee6
+Status: Tunnel failed
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code EAEB-C701
+Device code: EAEBC701
+Issued at: 2026-06-08T01:31:06
+Expires at: 2026-06-08T01:46:06
+Message: Tunnel command failed. Recent output: *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+[2026-06-07 20:03:34] error failed to lookup tunnel: connection error: error sending request for url (https://inc1.rel.tunnels.api.visualstudio.com/tunnels/fun-ant-jksdj7f?includePorts=true&tokenScopes=host&api-version=2023-09-27-preview)
