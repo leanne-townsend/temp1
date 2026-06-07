@@ -112,3 +112,13 @@ Device code: EAEBC701
 Issued at: 2026-06-08T01:31:06
 Expires at: 2026-06-08T01:46:06
 Message: Code issue 1 of 10
+
+[2026-06-08T01:32:21] Tunnel Summary
+Session ID: 42e933e02ee6
+Status: Authenticated
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code EAEB-C701
+Device code: EAEBC701
+Issued at: 2026-06-08T01:31:06
+Expires at: 2026-06-08T01:46:06
+Message: Browser authentication completed successfully.
