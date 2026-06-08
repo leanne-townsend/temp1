@@ -310,3 +310,13 @@ Device code: 670AA603
 Issued at: 2026-06-08T12:33:25
 Expires at: 2026-06-08T12:48:25
 Message: Code issue 2 of 3
+
+[2026-06-08T12:48:25] Tunnel Summary
+Session ID: d423667e366a
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 670A-A603
+Device code: 670AA603
+Issued at: 2026-06-08T12:33:25
+Expires at: 2026-06-08T12:48:25
+Message: Browser authentication was not completed before the code expired.
