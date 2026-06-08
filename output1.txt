@@ -351,3 +351,13 @@ Device code: 8BE71C37
 Issued at: 2026-06-08T12:48:29
 Expires at: 2026-06-08T13:03:29
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-08T13:03:42] Tunnel Summary
+Session ID: d423667e366a
+Status: Authentication not completed
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8BE7-1C37
+Device code: 8BE71C37
+Issued at: 2026-06-08T12:48:29
+Expires at: 2026-06-08T13:03:29
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
