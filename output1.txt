@@ -195,3 +195,13 @@ Device code: 1FE5DA49
 Issued at: 2026-06-08T11:25:04
 Expires at: 2026-06-08T11:40:04
 Message: Code issue 1 of 10
+
+[2026-06-08T11:26:32] Tunnel Summary
+Session ID: d75e8e50b94c
+Status: Authenticated
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 1FE5-DA49
+Device code: 1FE5DA49
+Issued at: 2026-06-08T11:25:04
+Expires at: 2026-06-08T11:40:04
+Message: Browser authentication completed successfully.
