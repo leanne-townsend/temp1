@@ -92,3 +92,13 @@ Issued at: 2026-06-08T07:48:00
 Expires at: 2026-06-08T08:03:00
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/ProgramData/Python
 Message: Continuation of authenticated session.
+
+[2026-06-08T07:52:05] Tunnel Summary
+Session ID: 5c2e01fb1df3
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 916C-5BAE
+Device code: 916C5BAE
+Issued at: 2026-06-08T07:52:02
+Expires at: 2026-06-08T08:07:02
+Message: Code issue 1 of 10
