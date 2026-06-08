@@ -216,3 +216,8 @@ Issued at: 2026-06-08T11:25:04
 Expires at: 2026-06-08T11:40:04
 Tunnel URL: https://vscode.dev/tunnel/desktop-3g8cmde/C:/Windows/system32
 Message: Continuation of authenticated session.
+
+[2026-06-08T11:46:51] Tunnel Summary
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code AB85-CE89
+Device code: AB85CE89
