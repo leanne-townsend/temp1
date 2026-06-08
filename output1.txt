@@ -330,3 +330,8 @@ Device code: 8BE71C37
 Issued at: 2026-06-08T12:48:29
 Expires at: 2026-06-08T13:03:29
 Message: Code issue 3 of 3
+
+[2026-06-08T12:49:14] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B2AA-DDC5
+Device code: B2AADDC5
