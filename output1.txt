@@ -81,3 +81,14 @@ Device code: 871AA9C7
 Issued at: 2026-06-08T07:48:00
 Expires at: 2026-06-08T08:03:00
 Message: Browser authentication completed successfully.
+
+[2026-06-08T07:49:07] Tunnel Summary
+Session ID: 21e67b18c7ca
+Status: Tunnel active
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 871A-A9C7
+Device code: 871AA9C7
+Issued at: 2026-06-08T07:48:00
+Expires at: 2026-06-08T08:03:00
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/ProgramData/Python
+Message: Continuation of authenticated session.
