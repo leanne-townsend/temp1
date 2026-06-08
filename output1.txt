@@ -258,3 +258,14 @@ Device code: C3E9F91F
 Issued at: 2026-06-08T11:56:51
 Expires at: 2026-06-08T12:11:51
 Message: Browser authentication completed successfully.
+
+[2026-06-08T12:03:53] Tunnel Summary
+Session ID: 811c9cf8e290
+Status: Tunnel active
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C3E9-F91F
+Device code: C3E9F91F
+Issued at: 2026-06-08T11:56:51
+Expires at: 2026-06-08T12:11:51
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
+Message: Continuation of authenticated session.
