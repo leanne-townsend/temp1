@@ -341,3 +341,13 @@ Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B2AA-DDC5
 Device code: B2AADDC5
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
+
+[2026-06-08T13:03:29] Tunnel Summary
+Session ID: d423667e366a
+Status: Expired
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 8BE7-1C37
+Device code: 8BE71C37
+Issued at: 2026-06-08T12:48:29
+Expires at: 2026-06-08T13:03:29
+Message: Browser authentication was not completed before the code expired.
