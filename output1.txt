@@ -280,3 +280,13 @@ Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7796-1BF4
 Device code: 77961BF4
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/Windows/System32
+
+[2026-06-08T12:18:24] Tunnel Summary
+Session ID: d423667e366a
+Status: Pending authentication
+Tunnel machine name: WIN-TARGET-2
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FF56-B921
+Device code: FF56B921
+Issued at: 2026-06-08T12:18:19
+Expires at: 2026-06-08T12:33:19
+Message: Code issue 1 of 3
