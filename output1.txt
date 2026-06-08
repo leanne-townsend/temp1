@@ -19,3 +19,14 @@ Device code: 7F1EDAD5
 Issued at: 2026-06-08T07:10:08
 Expires at: 2026-06-08T07:25:08
 Message: Browser authentication completed successfully.
+
+[2026-06-08T07:11:46] Tunnel Summary
+Session ID: d93fe607401e
+Status: Tunnel active
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7F1E-DAD5
+Device code: 7F1EDAD5
+Issued at: 2026-06-08T07:10:08
+Expires at: 2026-06-08T07:25:08
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
+Message: Continuation of authenticated session.
