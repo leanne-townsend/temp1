@@ -269,3 +269,8 @@ Issued at: 2026-06-08T11:56:51
 Expires at: 2026-06-08T12:11:51
 Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
 Message: Continuation of authenticated session.
+
+[2026-06-08T12:08:39] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7796-1BF4
+Device code: 77961BF4
