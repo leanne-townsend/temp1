@@ -335,3 +335,9 @@ Message: Code issue 3 of 3
 Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B2AA-DDC5
 Device code: B2AADDC5
+
+[2026-06-08T12:51:46] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B2AA-DDC5
+Device code: B2AADDC5
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
