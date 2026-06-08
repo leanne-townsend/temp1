@@ -361,3 +361,8 @@ Device code: 8BE71C37
 Issued at: 2026-06-08T12:48:29
 Expires at: 2026-06-08T13:03:29
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-08T14:36:08] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 764A-B6A4
+Device code: 764AB6A4
