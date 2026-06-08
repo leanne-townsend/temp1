@@ -102,3 +102,13 @@ Device code: 916C5BAE
 Issued at: 2026-06-08T07:52:02
 Expires at: 2026-06-08T08:07:02
 Message: Code issue 1 of 10
+
+[2026-06-08T07:52:38] Tunnel Summary
+Session ID: 5c2e01fb1df3
+Status: Authenticated
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 916C-5BAE
+Device code: 916C5BAE
+Issued at: 2026-06-08T07:52:02
+Expires at: 2026-06-08T08:07:02
+Message: Browser authentication completed successfully.
