@@ -274,3 +274,9 @@ Message: Continuation of authenticated session.
 Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7796-1BF4
 Device code: 77961BF4
+
+[2026-06-08T12:09:42] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 7796-1BF4
+Device code: 77961BF4
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/Windows/System32
