@@ -232,3 +232,13 @@ Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Windows/system32
 Tunnel machine name: WIN-TARGET-1
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 445B-DFA8
 Device code: 445BDFA8
+
+[2026-06-08T11:56:57] Tunnel Summary
+Session ID: 811c9cf8e290
+Status: Pending authentication
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C3E9-F91F
+Device code: C3E9F91F
+Issued at: 2026-06-08T11:56:51
+Expires at: 2026-06-08T12:11:51
+Message: Code issue 1 of 10
