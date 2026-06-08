@@ -366,3 +366,9 @@ Message: Maximum device-code refresh limit reached for this run. A future schedu
 Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 764A-B6A4
 Device code: 764AB6A4
+
+[2026-06-08T14:36:59] Tunnel Summary
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 764A-B6A4
+Device code: 764AB6A4
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/windows/system32
