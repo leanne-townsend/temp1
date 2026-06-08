@@ -227,3 +227,8 @@ Tunnel machine name: WIN-TARGET-1
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code AB85-CE89
 Device code: AB85CE89
 Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Windows/system32
+
+[2026-06-08T11:55:22] Tunnel Summary
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 445B-DFA8
+Device code: 445BDFA8
