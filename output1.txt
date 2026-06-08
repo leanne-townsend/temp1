@@ -112,3 +112,14 @@ Device code: 916C5BAE
 Issued at: 2026-06-08T07:52:02
 Expires at: 2026-06-08T08:07:02
 Message: Browser authentication completed successfully.
+
+[2026-06-08T07:52:44] Tunnel Summary
+Session ID: 5c2e01fb1df3
+Status: Tunnel active
+Tunnel machine name: LAPTOP-6CC0INMJ
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 916C-5BAE
+Device code: 916C5BAE
+Issued at: 2026-06-08T07:52:02
+Expires at: 2026-06-08T08:07:02
+Tunnel URL: https://vscode.dev/tunnel/laptop-6cc0inmj/C:/ProgramData/Python
+Message: Continuation of authenticated session.
