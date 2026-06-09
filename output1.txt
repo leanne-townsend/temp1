@@ -392,3 +392,13 @@ Device code: 309CC82F
 Issued at: 2026-06-09T09:02:50
 Expires at: 2026-06-09T09:17:50
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-09T09:17:56] Tunnel Summary
+Session ID: 539a9505b9d5
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6A51-9A69
+Device code: 6A519A69
+Issued at: 2026-06-09T09:17:54
+Expires at: 2026-06-09T09:32:54
+Message: Code issue 2 of 10
