@@ -492,3 +492,13 @@ Device code: CC040394
 Issued at: 2026-06-09T10:18:12
 Expires at: 2026-06-09T10:33:12
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-09T10:33:33] Tunnel Summary
+Session ID: 539a9505b9d5
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 547A-FACE
+Device code: 547AFACE
+Issued at: 2026-06-09T10:33:30
+Expires at: 2026-06-09T10:48:30
+Message: Code issue 7 of 10
