@@ -432,3 +432,13 @@ Device code: 45AACF3D
 Issued at: 2026-06-09T09:32:59
 Expires at: 2026-06-09T09:47:59
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-09T09:48:05] Tunnel Summary
+Session ID: 539a9505b9d5
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code D93B-3C8D
+Device code: D93B3C8D
+Issued at: 2026-06-09T09:48:03
+Expires at: 2026-06-09T10:03:03
+Message: Code issue 4 of 10
