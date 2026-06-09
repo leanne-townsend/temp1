@@ -532,3 +532,13 @@ Device code: 530D084D
 Issued at: 2026-06-09T10:49:06
 Expires at: 2026-06-09T11:04:06
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-09T11:04:21] Tunnel Summary
+Session ID: 539a9505b9d5
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 78F3-36B6
+Device code: 78F336B6
+Issued at: 2026-06-09T11:04:19
+Expires at: 2026-06-09T11:19:19
+Message: Code issue 9 of 10
