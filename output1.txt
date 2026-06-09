@@ -572,3 +572,13 @@ Device code: E1D76458
 Issued at: 2026-06-09T11:19:27
 Expires at: 2026-06-09T11:34:27
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-09T11:35:11] Tunnel Summary
+Session ID: 539a9505b9d5
+Status: Authentication not completed
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code E1D7-6458
+Device code: E1D76458
+Issued at: 2026-06-09T11:19:27
+Expires at: 2026-06-09T11:34:27
+Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
