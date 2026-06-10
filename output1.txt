@@ -592,3 +592,13 @@ Device code: B6BCCFC3
 Issued at: 2026-06-10T09:36:32
 Expires at: 2026-06-10T09:51:32
 Message: Code issue 1 of 10
+
+[2026-06-10T09:51:32] Tunnel Summary
+Session ID: dfc63e31c3fb
+Status: Expired
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B6BC-CFC3
+Device code: B6BCCFC3
+Issued at: 2026-06-10T09:36:32
+Expires at: 2026-06-10T09:51:32
+Message: Browser authentication was not completed before the code expired.
