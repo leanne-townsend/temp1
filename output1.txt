@@ -582,3 +582,13 @@ Device code: E1D76458
 Issued at: 2026-06-09T11:19:27
 Expires at: 2026-06-09T11:34:27
 Message: Maximum device-code refresh limit reached for this run. A future scheduled run can publish a new code.
+
+[2026-06-10T09:36:34] Tunnel Summary
+Session ID: dfc63e31c3fb
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B6BC-CFC3
+Device code: B6BCCFC3
+Issued at: 2026-06-10T09:36:32
+Expires at: 2026-06-10T09:51:32
+Message: Code issue 1 of 10
