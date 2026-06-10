@@ -602,3 +602,13 @@ Device code: B6BCCFC3
 Issued at: 2026-06-10T09:36:32
 Expires at: 2026-06-10T09:51:32
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-10T09:51:37] Tunnel Summary
+Session ID: dfc63e31c3fb
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 59D2-6EA2
+Device code: 59D26EA2
+Issued at: 2026-06-10T09:51:35
+Expires at: 2026-06-10T10:06:35
+Message: Code issue 2 of 10
