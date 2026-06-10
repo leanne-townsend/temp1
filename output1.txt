@@ -642,3 +642,13 @@ Device code: AD7F0C49
 Issued at: 2026-06-10T10:06:40
 Expires at: 2026-06-10T10:21:40
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-10T10:22:10] Tunnel Summary
+Session ID: dfc63e31c3fb
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code A734-2A87
+Device code: A7342A87
+Issued at: 2026-06-10T10:21:53
+Expires at: 2026-06-10T10:36:53
+Message: Code issue 4 of 10
