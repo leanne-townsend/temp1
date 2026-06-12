@@ -652,3 +652,13 @@ Device code: A7342A87
 Issued at: 2026-06-10T10:21:53
 Expires at: 2026-06-10T10:36:53
 Message: Code issue 4 of 10
+
+[2026-06-12T09:42:00] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6DD8-8D2A
+Device code: 6DD88D2A
+Issued at: 2026-06-12T09:41:58
+Expires at: 2026-06-12T09:56:58
+Message: Code issue 1 of 10
