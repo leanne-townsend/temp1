@@ -692,3 +692,13 @@ Device code: 66894833
 Issued at: 2026-06-12T09:57:02
 Expires at: 2026-06-12T10:12:02
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-12T10:12:09] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F2BC-2BA7
+Device code: F2BC2BA7
+Issued at: 2026-06-12T10:12:07
+Expires at: 2026-06-12T10:27:07
+Message: Code issue 3 of 10
