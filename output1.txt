@@ -802,3 +802,13 @@ Device code: F0987BED
 Issued at: 2026-06-12T11:30:06
 Expires at: 2026-06-12T11:45:06
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-12T11:45:20] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 290E-1F34
+Device code: 290E1F34
+Issued at: 2026-06-12T11:45:18
+Expires at: 2026-06-12T12:00:18
+Message: Code issue 9 of 10
