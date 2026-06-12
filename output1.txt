@@ -682,3 +682,13 @@ Device code: 66894833
 Issued at: 2026-06-12T09:57:02
 Expires at: 2026-06-12T10:12:02
 Message: Code issue 2 of 10
+
+[2026-06-12T10:12:03] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Expired
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6689-4833
+Device code: 66894833
+Issued at: 2026-06-12T09:57:02
+Expires at: 2026-06-12T10:12:02
+Message: Browser authentication was not completed before the code expired.
