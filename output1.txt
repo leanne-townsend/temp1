@@ -662,3 +662,13 @@ Device code: 6DD88D2A
 Issued at: 2026-06-12T09:41:58
 Expires at: 2026-06-12T09:56:58
 Message: Code issue 1 of 10
+
+[2026-06-12T09:56:59] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Expired
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6DD8-8D2A
+Device code: 6DD88D2A
+Issued at: 2026-06-12T09:41:58
+Expires at: 2026-06-12T09:56:58
+Message: Browser authentication was not completed before the code expired.
