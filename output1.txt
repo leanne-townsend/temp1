@@ -1,1 +1,6 @@
 
+
+[2026-06-12T15:22:32] Tunnel Summary
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 79A9-15DB
+Device code: 79A915DB
