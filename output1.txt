@@ -752,3 +752,13 @@ Device code: FFA4E1A0
 Issued at: 2026-06-12T10:43:13
 Expires at: 2026-06-12T10:58:13
 Message: Browser authentication was not completed before the code expired.
+
+[2026-06-12T10:58:27] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code C12A-AFFC
+Device code: C12AAFFC
+Issued at: 2026-06-12T10:58:23
+Expires at: 2026-06-12T11:13:23
+Message: Code issue 6 of 10
