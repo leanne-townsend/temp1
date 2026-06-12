@@ -762,3 +762,13 @@ Device code: C12AAFFC
 Issued at: 2026-06-12T10:58:23
 Expires at: 2026-06-12T11:13:23
 Message: Code issue 6 of 10
+
+[2026-06-12T11:14:58] Tunnel Summary
+Session ID: 8caae2fadcc1
+Status: Pending authentication
+Tunnel machine name: DESKTOP-3G8CMDE
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code BCD0-DC38
+Device code: BCD0DC38
+Issued at: 2026-06-12T11:14:53
+Expires at: 2026-06-12T11:29:53
+Message: Code issue 7 of 10
