@@ -9,3 +9,9 @@ Device code: 79A915DB
 Tunnel machine name: DESKTOP-EGTNQHD
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code E774-3CD7
 Device code: E7743CD7
+
+[2026-06-12T16:05:22] Tunnel Summary
+Tunnel machine name: DESKTOP-EGTNQHD
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code E774-3CD7
+Device code: E7743CD7
+Tunnel URL: https://vscode.dev/tunnel/desktop-egtnqhd/C:/Windows/system32
