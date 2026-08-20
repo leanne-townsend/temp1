@@ -45,3 +45,9 @@ Device code: 3AD639AC
 Tunnel machine name: WIN-TARGET-1
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0756-E92A
 Device code: 0756E92A
+
+[2026-08-20T19:35:11] Tunnel Summary
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0756-E92A
+Device code: 0756E92A
+Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Users/defuser/Desktop
