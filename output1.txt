@@ -40,3 +40,8 @@ Device code: 4EFFECCA
 Tunnel machine name: LAPTOP-6CC0INMJ
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 3AD6-39AC
 Device code: 3AD639AC
+
+[2026-08-20T19:34:21] Tunnel Summary
+Tunnel machine name: WIN-TARGET-1
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0756-E92A
+Device code: 0756E92A
