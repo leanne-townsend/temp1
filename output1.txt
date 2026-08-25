@@ -51,3 +51,8 @@ Tunnel machine name: WIN-TARGET-1
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0756-E92A
 Device code: 0756E92A
 Tunnel URL: https://vscode.dev/tunnel/win-target-1/C:/Users/defuser/Desktop
+
+[2026-08-25T10:06:08] Tunnel Summary
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code B213-C9B3
+Device code: B213C9B3
