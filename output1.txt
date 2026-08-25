@@ -78,3 +78,9 @@ Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/Users/survivor/Download
 Tunnel machine name: DESKTOP-U5SOD7I
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FBB7-9BE5
 Device code: FBB79BE5
+
+[2026-08-25T10:59:23] Tunnel Summary
+Tunnel machine name: DESKTOP-U5SOD7I
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FBB7-9BE5
+Device code: FBB79BE5
+Tunnel URL: https://vscode.dev/tunnel/desktop-u5sod7i/C:/WINDOWS/system32
