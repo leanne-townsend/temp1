@@ -95,3 +95,8 @@ Tunnel machine name: S
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 46D4-A64A
 Device code: 46D4A64A
 Tunnel URL: https://vscode.dev/tunnel/s/C:/Windows/System32
+
+[2026-10-11T23:43:06] Tunnel Summary
+Tunnel machine name: NITH
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 5332-2163
+Device code: 53322163
