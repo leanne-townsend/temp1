@@ -116,3 +116,8 @@ Tunnel URL: https://vscode.dev/tunnel/desktop-ce25p1m/C:/Users/ayush/Downloads
 Tunnel machine name: DESKTOP-CE25P1M
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 0733-95A0
 Device code: 073395A0
+
+[2026-11-13T17:56:03] Tunnel Summary
+Tunnel machine name: DESKTOP-CE25P1M
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 6260-6C47
+Device code: 62606C47
