@@ -136,3 +136,8 @@ Device code: 219CFDCE
 Tunnel machine name: DESKTOP-CE25P1M
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 41AC-B336
 Device code: 41ACB336
+
+[2026-11-17T09:56:03] Tunnel Summary
+Tunnel machine name: DESKTOP-CE25P1M
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code F19D-600B
+Device code: F19D600B
