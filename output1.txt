@@ -156,3 +156,8 @@ Device code: 69088E7E
 Tunnel machine name: DESKTOP-CE25P1M
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 37AA-523D
 Device code: 37AA523D
+
+[2026-11-21T21:56:02] Tunnel Summary
+Tunnel machine name: DESKTOP-CE25P1M
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 2A02-1536
+Device code: 2A021536
