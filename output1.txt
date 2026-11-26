@@ -176,3 +176,8 @@ Device code: 20010A11
 Tunnel machine name: DESKTOP-CE25P1M
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code 2EBB-F937
 Device code: 2EBBF937
+
+[2026-11-26T09:56:03] Tunnel Summary
+Tunnel machine name: DESKTOP-CE25P1M
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FB68-C1AC
+Device code: FB68C1AC
