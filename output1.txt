@@ -181,3 +181,8 @@ Device code: 2EBBF937
 Tunnel machine name: DESKTOP-CE25P1M
 Login instruction: To grant access to the server, please log into https://github.com/login/device and use code FB68-C1AC
 Device code: FB68C1AC
+
+[2026-11-27T09:56:02] Tunnel Summary
+Tunnel machine name: DESKTOP-CE25P1M
+Login instruction: To grant access to the server, please log into https://github.com/login/device and use code E602-356C
+Device code: E602356C
